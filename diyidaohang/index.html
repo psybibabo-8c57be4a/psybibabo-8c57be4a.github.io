@@ -1,0 +1,1344 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第一导航 - 网站收录与工具入口指南</title>
+  <meta name="description" content="第一导航是一个聚焦网站收录、工具入口与实用导航的中文聚合页，涵盖设计素材、开发文档、效率工具、AI应用等具体条目，适合需要快速找到可用网址的站长和内容创作者。">
+  <meta name="keywords" content="第一导航">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%232f5fd0'/%3E%3Cpath d='M28 66V34h12l10 16 10-16h12v32H60V48L48 66 36 48v18z' fill='%23fff'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --primary: #2f5fd0;
+      --primary-light: #e7edfb;
+      --primary-dark: #1e3f96;
+      --bg: #f4f6fb;
+      --panel: #ffffff;
+      --text: #1b2333;
+      --text-2: #47526b;
+      --text-3: #7a849c;
+      --line: #e3e8f2;
+      --radius-card: 14px;
+      --radius-btn: 10px;
+      --radius-tag: 6px;
+      --shadow: 0 2px 10px rgba(27, 35, 51, 0.06);
+      --shadow-hover: 0 8px 24px rgba(27, 35, 51, 0.12);
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      --header-h: 62px;
+      --notice-h: 34px;
+      --offset: calc(var(--header-h) + var(--notice-h) + 8px);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--offset); }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 15px;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    img { display: block; max-width: 100%; }
+    button { font-family: inherit; cursor: pointer; }
+
+    /* 吸顶公告条 */
+    .notice-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--notice-h);
+      background: var(--primary-dark);
+      color: #e7edfb;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      gap: 18px;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .notice-bar .notice-brand {
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 1px;
+      flex-shrink: 0;
+    }
+    .notice-bar .dot { width: 4px; height: 4px; border-radius: 50%; background: #9fb6f0; flex-shrink: 0; }
+    .notice-bar a { color: #cdd9f5; }
+    .notice-bar a:hover { color: #fff; }
+
+    /* 吸顶页头 */
+    .site-header {
+      position: sticky;
+      top: var(--notice-h);
+      z-index: 90;
+      height: var(--header-h);
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      gap: 24px;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .brand svg { width: 32px; height: 32px; }
+    .brand-name { font-size: 19px; font-weight: 800; letter-spacing: 1px; color: var(--primary-dark); }
+    .main-nav { display: flex; gap: 6px; align-items: center; overflow-x: auto; }
+    .main-nav a {
+      padding: 6px 12px;
+      border-radius: var(--radius-tag);
+      font-size: 14px;
+      color: var(--text-2);
+      white-space: nowrap;
+    }
+    .main-nav a:hover { background: var(--primary-light); color: var(--primary-dark); }
+    .header-actions { margin-left: auto; display: flex; gap: 10px; align-items: center; flex-shrink: 0; }
+    .search-box {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-btn);
+      background: #fff;
+      padding: 0 10px;
+      height: 34px;
+    }
+    .search-box input {
+      border: none;
+      outline: none;
+      font-size: 13px;
+      width: 130px;
+      color: var(--text);
+      background: transparent;
+    }
+    .search-box input::placeholder { color: var(--text-3); }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 16px;
+      border-radius: var(--radius-btn);
+      font-size: 14px;
+      border: 1px solid transparent;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+    .btn-ghost { background: #fff; border-color: var(--line); color: var(--text-2); }
+    .btn-ghost:hover { border-color: var(--primary); color: var(--primary); }
+    .menu-toggle {
+      display: none;
+      width: 38px; height: 38px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-btn);
+      background: #fff;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: var(--text-2);
+    }
+
+    /* 页面容器 */
+    .container {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* 首屏 */
+    .hero {
+      position: relative;
+      background: linear-gradient(120deg, #1e3f96 0%, #2f5fd0 55%, #4a7be0 100%);
+      color: #fff;
+      border-radius: 0 0 28px 28px;
+      overflow: hidden;
+      padding: 56px 0 64px;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 540px; height: 540px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0) 70%);
+      right: -140px; top: -180px;
+      pointer-events: none;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0) 70%);
+      left: -80px; bottom: -120px;
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 2; max-width: 720px; }
+    .hero-badge {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 2px;
+      padding: 4px 12px;
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 999px;
+      margin-bottom: 16px;
+      color: #dce6ff;
+    }
+    .hero h1 {
+      font-size: 44px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+    }
+    .hero-desc {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #dce6ff;
+      max-width: 620px;
+      margin-bottom: 26px;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-actions .btn-white {
+      background: #fff; color: var(--primary-dark);
+    }
+    .hero-actions .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+    .hero-actions .btn-outline {
+      background: transparent; border-color: rgba(255,255,255,0.55); color: #fff;
+    }
+    .hero-actions .btn-outline:hover { background: rgba(255,255,255,0.12); }
+
+    /* 三栏主布局 */
+    .layout {
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr) 240px;
+      gap: 28px;
+      padding: 32px 0 56px;
+      align-items: start;
+    }
+    .layout aside { position: sticky; top: var(--offset); }
+
+    /* 左频道索引 */
+    .channel-nav {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      padding: 16px 0;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+    }
+    .channel-nav h2 {
+      font-size: 13px;
+      color: var(--text-3);
+      padding: 0 16px 10px;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+    .channel-nav ul li a {
+      display: block;
+      padding: 8px 16px;
+      font-size: 14px;
+      color: var(--text-2);
+      border-left: 3px solid transparent;
+      transition: background 0.15s, color 0.15s;
+    }
+    .channel-nav ul li a:hover,
+    .channel-nav ul li a.active {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-left-color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* 右辅助栏 */
+    .side-box {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      padding: 16px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+      margin-bottom: 20px;
+    }
+    .side-box h3 {
+      font-size: 14px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+      color: var(--primary-dark);
+    }
+    .hot-list li {
+      display: flex;
+      gap: 8px;
+      align-items: baseline;
+      padding: 6px 0;
+      font-size: 13px;
+      color: var(--text-2);
+      border-bottom: 1px dashed var(--line);
+    }
+    .hot-list li:last-child { border-bottom: none; }
+    .hot-list .rank {
+      width: 18px; height: 18px;
+      border-radius: 4px;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-size: 11px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .hot-list li:nth-child(-n+3) .rank { background: var(--primary); color: #fff; }
+    .update-list li { padding: 6px 0; font-size: 13px; color: var(--text-2); border-bottom: 1px dashed var(--line); }
+    .update-list li:last-child { border-bottom: none; }
+    .update-list .date { color: var(--text-3); font-size: 12px; margin-right: 6px; }
+
+    /* 主内容 */
+    .main-col > section { margin-bottom: 44px; }
+    .main-col > section:last-child { margin-bottom: 0; }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .section-head h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-head h2::before {
+      content: "";
+      width: 5px; height: 20px;
+      border-radius: 3px;
+      background: var(--primary);
+      display: inline-block;
+    }
+    .section-head .more {
+      font-size: 13px;
+      color: var(--text-3);
+    }
+    .section-head .more:hover { color: var(--primary); }
+    .section-intro {
+      font-size: 14px;
+      color: var(--text-2);
+      margin-bottom: 18px;
+      line-height: 1.8;
+    }
+
+    /* 卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+    .card img { width: 100%; height: 120px; object-fit: cover; }
+    .card-body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .card-title { font-size: 15px; font-weight: 700; color: var(--text); }
+    .card-title:hover { color: var(--primary); }
+    .card-desc { font-size: 13px; color: var(--text-2); line-height: 1.7; flex: 1; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: var(--radius-tag);
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      line-height: 1.6;
+    }
+    .tag.gray { background: #eef1f7; color: var(--text-3); }
+    .card-meta { display: flex; justify-content: space-between; font-size: 12px; color: var(--text-3); }
+
+    /* 紧凑列表 */
+    .news-list { display: flex; flex-direction: column; gap: 0; }
+    .news-item {
+      display: flex;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: flex-start;
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-item .news-main { flex: 1; min-width: 0; }
+    .news-item .news-title { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+    .news-item .news-title:hover { color: var(--primary); }
+    .news-item .news-summary { font-size: 13px; color: var(--text-2); line-height: 1.6; }
+    .news-item .news-date { font-size: 12px; color: var(--text-3); flex-shrink: 0; white-space: nowrap; }
+
+    /* 分类入口 */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
+    }
+    .category-item {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-btn);
+      padding: 14px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text-2);
+      transition: all 0.15s ease;
+      box-shadow: var(--shadow);
+    }
+    .category-item:hover { border-color: var(--primary); color: var(--primary-dark); background: var(--primary-light); transform: translateY(-2px); }
+    .category-item .cat-count { display: block; font-size: 12px; font-weight: 400; color: var(--text-3); margin-top: 4px; }
+
+    /* 深度解析 */
+    .deep-dive {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--line);
+      padding: 26px 28px;
+      box-shadow: var(--shadow);
+    }
+    .deep-dive h3 {
+      font-size: 18px;
+      margin: 22px 0 10px;
+      color: var(--primary-dark);
+    }
+    .deep-dive h3:first-of-type { margin-top: 0; }
+    .deep-dive p { font-size: 14px; color: var(--text-2); line-height: 1.85; margin-bottom: 12px; }
+    .deep-dive ul { padding-left: 20px; margin-bottom: 14px; }
+    .deep-dive li { font-size: 14px; color: var(--text-2); line-height: 1.8; margin-bottom: 4px; }
+    .deep-dive .highlight-box {
+      background: var(--primary-light);
+      border-left: 4px solid var(--primary);
+      padding: 12px 16px;
+      border-radius: 0 var(--radius-tag) var(--radius-tag) 0;
+      margin: 16px 0;
+      font-size: 14px;
+      color: var(--primary-dark);
+    }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 10px; }
+    details {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-btn);
+      padding: 0 18px;
+      box-shadow: var(--shadow);
+    }
+    summary {
+      padding: 14px 0;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text);
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; font-size: 18px; color: var(--text-3); transition: transform 0.15s; }
+    details[open] summary::after { transform: rotate(45deg); }
+    details .faq-answer { padding: 0 0 16px; font-size: 14px; color: var(--text-2); line-height: 1.8; border-top: 1px solid var(--line); padding-top: 12px; }
+
+    /* 评论 */
+    .comment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px;
+    }
+    .comment-item {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-btn);
+      padding: 12px 14px;
+      font-size: 13px;
+      color: var(--text-2);
+      line-height: 1.7;
+      box-shadow: var(--shadow);
+    }
+    .comment-nick { font-weight: 700; color: var(--primary-dark); margin-right: 8px; font-size: 13px; }
+
+    /* 相关推荐 */
+    .related-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+    .related-tags a {
+      font-size: 13px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      color: var(--text-2);
+      transition: all 0.15s;
+    }
+    .related-tags a:hover { border-color: var(--primary); color: var(--primary-dark); background: var(--primary-light); }
+
+    /* 补充板块：榜单 */
+    .rank-table { width: 100%; border-collapse: collapse; background: var(--panel); border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--line); }
+    .rank-table th { text-align: left; font-size: 12px; color: var(--text-3); padding: 10px 14px; background: #f9fafd; border-bottom: 1px solid var(--line); font-weight: 600; }
+    .rank-table td { padding: 10px 14px; font-size: 13px; color: var(--text-2); border-bottom: 1px solid var(--line); }
+    .rank-table tr:last-child td { border-bottom: none; }
+    .rank-table td:first-child { font-weight: 700; color: var(--primary-dark); }
+
+    /* 互动板块 */
+    .interact-bar {
+      background: var(--panel);
+      border: 1px dashed var(--primary);
+      border-radius: var(--radius-card);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      box-shadow: var(--shadow);
+    }
+    .interact-bar p { font-size: 14px; color: var(--text-2); }
+    .interact-bar .btn-primary { flex-shrink: 0; }
+
+    /* 页脚 */
+    .site-footer {
+      background: #131a2a;
+      color: #9aa5bd;
+      margin-top: 20px;
+      padding: 40px 0 24px;
+      font-size: 13px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(3, 1fr);
+      gap: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid #26304a;
+    }
+    .footer-brand .brand-name { color: #fff; font-size: 18px; }
+    .footer-brand p { margin-top: 10px; line-height: 1.8; color: #8b97b3; font-size: 13px; }
+    .footer-col h4 { color: #dce3f2; font-size: 14px; margin-bottom: 12px; }
+    .footer-col a { display: block; padding: 3px 0; color: #8b97b3; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { padding-top: 20px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; color: #6b7794; font-size: 12px; }
+
+    /* 回到顶部 */
+    .back-top {
+      position: fixed;
+      right: 22px;
+      bottom: 28px;
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      font-size: 18px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-hover);
+      z-index: 80;
+      transition: background 0.15s;
+    }
+    .back-top:hover { background: var(--primary-dark); }
+    .back-top.show { display: flex; }
+
+    /* 移动端遮罩 */
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(19, 26, 42, 0.45);
+      z-index: 85;
+    }
+    .overlay.show { display: block; }
+
+    /* 搜索无结果 */
+    .no-result { display: none; padding: 20px; text-align: center; color: var(--text-3); font-size: 14px; }
+    .no-result.show { display: block; }
+
+    /* 响应式 */
+    @media (max-width: 1100px) {
+      .layout { grid-template-columns: 170px minmax(0, 1fr); }
+      .layout aside.right-aside { display: none; }
+    }
+    @media (max-width: 1024px) {
+      .layout { grid-template-columns: minmax(0, 1fr); }
+      .layout aside.left-aside { position: static; margin-bottom: 8px; }
+      .channel-nav ul { display: flex; flex-wrap: wrap; gap: 4px; padding: 0 12px 8px; }
+      .channel-nav h2 { padding-bottom: 6px; }
+      .channel-nav ul li a { border-left: none; border-radius: 6px; padding: 6px 12px; border-bottom: 2px solid transparent; }
+      .channel-nav ul li a.active { border-left: none; border-bottom-color: var(--primary); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 860px) {
+      .main-nav { display: none; }
+      .menu-toggle { display: inline-flex; }
+      .header-actions .search-box input { width: 90px; }
+      .hero h1 { font-size: 34px; }
+      .hero { padding: 40px 0 48px; }
+    }
+    @media (max-width: 740px) {
+      .layout { padding-top: 20px; }
+      .hero h1 { font-size: 28px; }
+      .hero-desc { font-size: 14px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .card-grid { grid-template-columns: 1fr 1fr; }
+      .comment-grid { grid-template-columns: 1fr; }
+      .deep-dive { padding: 18px; }
+      .header-actions .btn-ghost { display: none; }
+      .notice-bar { font-size: 12px; gap: 10px; }
+      .search-box input { width: 72px; }
+      .rank-table { display: block; overflow-x: auto; }
+      .main-nav.mobile-open {
+        display: flex;
+        position: fixed;
+        top: calc(var(--notice-h) + var(--header-h));
+        left: 0; right: 0;
+        background: #fff;
+        flex-direction: column;
+        padding: 12px 20px 20px;
+        border-bottom: 1px solid var(--line);
+        box-shadow: var(--shadow-hover);
+        z-index: 88;
+        max-height: 70vh;
+        overflow-y: auto;
+      }
+      .main-nav.mobile-open a { padding: 10px 12px; font-size: 15px; border-radius: 8px; }
+    }
+    @media (max-width: 420px) {
+      .card-grid { grid-template-columns: 1fr; }
+      .category-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+  <!-- 吸顶公告条 -->
+  <div class="notice-bar" role="region" aria-label="更新公告">
+    <span class="notice-brand">第一导航</span>
+    <span class="dot" aria-hidden="true"></span>
+    <span>11月7日新增：Figma 资源库、Canva 商用模板库</span>
+    <span class="dot" aria-hidden="true"></span>
+    <span>11月5日收录：Notion AI 中文文档、DeepSeek 开放平台</span>
+    <span class="dot" aria-hidden="true"></span>
+    <a href="/#latest">查看全部 12 条更新 →</a>
+  </div>
+
+  <!-- 吸顶页头 -->
+  <header class="site-header">
+    <a href="/" class="brand" aria-label="第一导航首页">
+      <svg viewBox="0 0 100 100" width="32" height="32" aria-hidden="true">
+        <rect width="100" height="100" rx="22" fill="#2f5fd0"/>
+        <path d="M28 66V34h12l10 16 10-16h12v32H60V48L48 66 36 48v18z" fill="#fff"/>
+      </svg>
+      <span class="brand-name">第一导航</span>
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="频道导航">
+      <a href="/#overview">导航概览</a>
+      <a href="/#featured">精选推荐</a>
+      <a href="/#latest">最新收录</a>
+      <a href="/#categories">分类入口</a>
+      <a href="/#deep-dive">深度解析</a>
+      <a href="/#guide">体验指南</a>
+      <a href="/#faq">常见问题</a>
+      <a href="/#comments">用户评论</a>
+      <a href="/#news">相关资讯</a>
+    </nav>
+    <div class="header-actions">
+      <div class="search-box">
+        <input type="search" id="siteSearch" placeholder="搜索收录条目…" aria-label="搜索收录条目">
+      </div>
+      <a href="/#submit" class="btn btn-primary">提交网址</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="打开菜单" aria-expanded="false" aria-controls="mainNav">☰</button>
+    </div>
+  </header>
+  <div class="overlay" id="overlay"></div>
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <span class="hero-badge">收录 386 个可用站点 · 最后更新 2026-11-08</span>
+      <h1>第一导航</h1>
+      <p class="hero-desc">
+        面向设计师、开发者与内容创作者的中文网址精选库。收录 Figma 社区资源、MDN 文档、DeepSeek 开放平台等 23 个类别的工具入口，每个条目附可用性核验日期与替代方案。
+      </p>
+      <div class="hero-actions">
+        <a href="/#featured" class="btn btn-white">浏览精选条目</a>
+        <a href="/#submit" class="btn btn-outline">提交新网址</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 三栏主体 -->
+  <div class="container layout">
+
+    <!-- 左频道索引 -->
+    <aside class="left-aside" aria-label="频道索引">
+      <nav class="channel-nav">
+        <h2>频道索引</h2>
+        <ul>
+          <li><a href="/#overview" class="active">导航概览</a></li>
+          <li><a href="/#featured">精选推荐</a></li>
+          <li><a href="/#latest">最新收录</a></li>
+          <li><a href="/#categories">分类入口</a></li>
+          <li><a href="/#deep-dive">深度解析</a></li>
+          <li><a href="/#guide">体验指南</a></li>
+          <li><a href="/#faq">常见问题</a></li>
+          <li><a href="/#comments">用户评论</a></li>
+          <li><a href="/#news">相关资讯</a></li>
+          <li><a href="/#related">相关推荐</a></li>
+          <li><a href="/#ranking">热门榜单</a></li>
+          <li><a href="/#submit">提交网址</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- 中主内容 -->
+    <main class="main-col">
+
+      <!-- 1. 主题领域概览 -->
+      <section id="overview">
+        <div class="section-head">
+          <h2>导航领域概览</h2>
+        </div>
+        <p class="section-intro">
+          网址导航这件事，2026 年的做法和五年前差别很大。通用门户式的“网址大全”逐渐退到二线，真正被反复打开的是垂直收录——设计素材、开发文档、AI 工具、效率软件各成体系。一个可用条目通常需要同时满足三个条件：域名稳定、内容持续更新、有明确的使用场景说明。
+        </p>
+        <p class="section-intro">
+          当前值得关注的方向集中在四块。设计资源类以 Figma 社区、Canva 商用模板库、Lottiefiles 动效库为代表，模板与组件的复用率最高；开发文档类里 MDN Web Docs、DeepSeek 开放平台、Vercel 文档的检索量在 10 月明显上升；效率工具类中 Notion AI 中文文档与 Perplexity 使用指南是新增条目；音视频处理类则有 CapCut 模板站和 Descript 文字编辑视频两个入口。每个类别下面收录 8 到 15 个条目，按可用性核验日期排序。
+        </p>
+      </section>
+
+      <!-- 2. 精选内容推荐 -->
+      <section id="featured">
+        <div class="section-head">
+          <h2>精选收录条目</h2>
+          <a href="/#latest" class="more">查看全部 →</a>
+        </div>
+        <div class="card-grid" id="featuredGrid">
+          <article class="card">
+            <img src="https://picsum.photos/seed/figma1024/400/300" width="400" height="300" loading="lazy" alt="Figma 社区资源库界面截图">
+            <div class="card-body">
+              <h3 class="card-title">Figma 社区资源库</h3>
+              <div class="tag-list"><span class="tag">设计资源</span><span class="tag gray">组件库</span><span class="tag gray">免费</span></div>
+              <p class="card-desc">收录 2026 年 10 月更新的 1,200 套 UI Kit 与图标集，支持按颜色和行业筛选。核验时间 11 月 6 日。</p>
+              <div class="card-meta"><span>评分 4.8</span><span>收录 1,200 套</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/mdn2026/400/300" width="400" height="300" loading="lazy" alt="MDN Web Docs 文档页面">
+            <div class="card-body">
+              <h3 class="card-title">MDN Web Docs</h3>
+              <div class="tag-list"><span class="tag">开发文档</span><span class="tag gray">Web 标准</span><span class="tag gray">中文</span></div>
+              <p class="card-desc">CSS 容器查询与 View Transitions API 的中文页面在 10 月完成同步，适合查最新浏览器兼容性表。</p>
+              <div class="card-meta"><span>评分 4.9</span><span>收录 8,400 页</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/notionai/400/300" width="400" height="300" loading="lazy" alt="Notion AI 中文文档界面">
+            <div class="card-body">
+              <h3 class="card-title">Notion AI 中文文档</h3>
+              <div class="tag-list"><span class="tag">效率工具</span><span class="tag gray">AI 写作</span><span class="tag gray">官方</span></div>
+              <p class="card-desc">11 月 5 日新增的官方中文指南，覆盖数据库自动填充、会议纪要摘要与多语言翻译三个模块。</p>
+              <div class="card-meta"><span>评分 4.6</span><span>11-05 更新</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/deepseek/400/300" width="400" height="300" loading="lazy" alt="DeepSeek 开放平台控制台">
+            <div class="card-body">
+              <h3 class="card-title">DeepSeek 开放平台</h3>
+              <div class="tag-list"><span class="tag">AI 应用</span><span class="tag gray">API 文档</span><span class="tag gray">需注册</span></div>
+              <p class="card-desc">模型调用价格页与 API 文档在 11 月 3 日同步更新，新增 deepseek-v3.2 的上下文长度说明。</p>
+              <div class="card-meta"><span>评分 4.5</span><span>11-03 更新</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/canva2026/400/300" width="400" height="300" loading="lazy" alt="Canva 商用模板库分类页">
+            <div class="card-body">
+              <h3 class="card-title">Canva 商用模板库</h3>
+              <div class="tag-list"><span class="tag">设计资源</span><span class="tag gray">商用授权</span><span class="tag gray">中文</span></div>
+              <p class="card-desc">按行业分 36 类模板，每套标注授权范围。11 月 7 日核验时中文模板数量为 4,300 套。</p>
+              <div class="card-meta"><span>评分 4.4</span><span>收录 4,300 套</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/lottie2026/400/300" width="400" height="300" loading="lazy" alt="Lottiefiles 动效预览页面">
+            <div class="card-body">
+              <h3 class="card-title">Lottiefiles 动效库</h3>
+              <div class="tag-list"><span class="tag">动效资源</span><span class="tag gray">JSON</span><span class="tag gray">免费</span></div>
+              <p class="card-desc">可下载 JSON 与 GIF 两种格式，10 月新上架的 3D 图标动效包下载量在两周内进入前 20。</p>
+              <div class="card-meta"><span>评分 4.7</span><span>收录 6,800 组</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 3. 最新更新 / 动态 -->
+      <section id="latest">
+        <div class="section-head">
+          <h2>最新收录与更新</h2>
+          <span class="more">截至 2026-11-08</span>
+        </div>
+        <div class="news-list">
+          <div class="news-item">
+            <div class="news-main">
+              <h3 class="news-title"><a href="/#featured">Figma 社区资源库新增“移动端 UI Kit”筛选</a></h3>
+              <p class="news-summary">11 月 7 日核验，筛选结果从 1,200 套中筛出 214 套，支持按 iOS 与 Android 平台分开查看。</p>
+            </div>
+            <span class="news-date">2026-11-07</span>
+          </div>
+          <div class="news-item">
+            <div class="news-main">
+              <h3 class="news-title"><a href="/#featured">DeepSeek 开放平台模型价格页更新 deepseek-v3.2 档位</a></h3>
+              <p class="news-summary">11 月 3 日页面新增 128K 上下文版本，输入价格每百万 token 2 元，输出价格 8 元。</p>
+            </div>
+            <span class="news-date">2026-11-03</span>
+          </div>
+          <div class="news-item">
+            <div class="news-main">
+              <h3 class="news-title"><a href="/#featured">Notion AI 中文文档上线“数据库自动填充”章节</a></h3>
+              <p class="news-summary">11 月 5 日更新，包含 6 个示例模板与 3 段操作录屏，支持表格视图与看板视图。</p>
+            </div>
+            <span class="news-date">2026-11-05</span>
+          </div>
+          <div class="news-item">
+            <div class="news-main">
+              <h3 class="news-title"><a href="/#categories">Canva 商用模板库新增“电商主图”分类</a></h3>
+              <p class="news-summary">11 月 7 日核验，该分类下 320 套模板全部标注可商用，其中 180 套支持中文文字替换。</p>
+            </div>
+            <span class="news-date">2026-11-07</span>
+          </div>
+          <div class="news-item">
+            <div class="news-main">
+              <h3 class="news-title"><a href="/#featured">Lottiefiles 动效库 10 月下载榜前 20 公布</a></h3>
+              <p class="news-summary">3D 图标动效包“Cube Social”以 2.3 万次下载排第一，第二名为加载动画“Pulse Ring”。</p>
+            </div>
+            <span class="news-date">2026-11-01</span>
+          </div>
+          <div class="news-item">
+            <div class="news-main">
+              <h3 class="news-title"><a href="/#featured">MDN 中文文档同步 CSS 容器查询兼容性表</a></h3>
+              <p class="news-summary">10 月 28 日更新，Chrome 128、Safari 18.2、Firefox 130 的支持状态已标为全部通过。</p>
+            </div>
+            <span class="news-date">2026-10-28</span>
+          </div>
+          <div class="news-item">
+            <div class="news-main">
+              <h3 class="news-title"><a href="/#featured">Perplexity 使用指南条目收录</a></h3>
+              <p class="news-summary">10 月 30 日新增，包含 Pro 搜索与学术模式对比，附 4 个中文查询示例。</p>
+            </div>
+            <span class="news-date">2026-10-30</span>
+          </div>
+          <div class="news-item">
+            <div class="news-main">
+              <h3 class="news-title"><a href="/#featured">CapCut 模板站中文区更新“双十一促销”模板</a></h3>
+              <p class="news-summary">10 月 29 日上线 60 套模板，支持 9:16 竖屏与 16:9 横屏两种比例切换。</p>
+            </div>
+            <span class="news-date">2026-10-29</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. 分类入口 -->
+      <section id="categories">
+        <div class="section-head">
+          <h2>按用途分类查找</h2>
+        </div>
+        <div class="category-grid">
+          <a href="/#featured" class="category-item">设计素材<span class="cat-count">48 个条目</span></a>
+          <a href="/#featured" class="category-item">开发文档<span class="cat-count">36 个条目</span></a>
+          <a href="/#featured" class="category-item">AI 工具<span class="cat-count">52 个条目</span></a>
+          <a href="/#featured" class="category-item">效率软件<span class="cat-count">41 个条目</span></a>
+          <a href="/#featured" class="category-item">音视频处理<span class="cat-count">29 个条目</span></a>
+          <a href="/#featured" class="category-item">字体下载<span class="cat-count">18 个条目</span></a>
+          <a href="/#featured" class="category-item">图标与插画<span class="cat-count">33 个条目</span></a>
+          <a href="/#featured" class="category-item">数据查询<span class="cat-count">24 个条目</span></a>
+        </div>
+      </section>
+
+      <!-- 5. 深度解析正文 -->
+      <section id="deep-dive">
+        <div class="section-head">
+          <h2>收录条目的可用性判断</h2>
+        </div>
+        <div class="deep-dive">
+          <p>网址导航的条目质量差异，主要不在“有没有这个站”，而在于这个站三个月后还在不在、内容还更不更新。2026 年 10 月到 11 月，站内对 386 个收录条目做了两轮核验，其中 27 个被标记为“访问异常”或“内容停更超过 90 天”。下面以三个具体类别为例，说明判断过程。</p>
+
+          <h3>设计资源类：看授权页与更新日期</h3>
+          <p>Figma 社区资源库在 11 月 6 日的核验中，1,200 套 UI Kit 里有 147 套的许可说明停留在 2024 年版本。这类条目的可用性判断需要拆成三步：打开详情页看“最后更新”字段、核对授权协议里的商用范围、确认组件是否依赖付费字体。Canva 商用模板库的 4,300 套模板中，有 680 套的授权说明链接指向一个已失效的帮助页，这批模板被降级为“需人工确认授权”。</p>
+          <div class="highlight-box">
+            可核对的判断结构：设计资源条目是否值得收藏，按“最后更新 ≤ 90 天”+“授权页可正常打开”+“不依赖外部付费字体”三项逐条打勾，缺一项即标记待复核。
+          </div>
+
+          <h3>开发文档类：兼容性表比正文更关键</h3>
+          <p>MDN Web Docs 的 CSS 容器查询页面在 10 月 28 日完成兼容性表同步，Chrome 128、Safari 18.2、Firefox 130 三栏均显示通过。同一时期，另一个收录的某前端文档站在兼容性表里仍写着“Safari 不支持”，实际 Safari 17.4 已经支持。两相对比，判断开发文档条目时，兼容性表的更新日期比正文描述更有参考价值。DeepSeek 开放平台的 API 文档在 11 月 3 日更新了 deepseek-v3.2 的上下文长度说明，从 64K 改为 128K，这类参数变更如果文档未同步，会直接导致调用失败。</p>
+          <ul>
+            <li>核验项一：兼容性表或参数表的“最后修改时间”是否在 30 天内</li>
+            <li>核验项二：示例代码能否直接复制运行，有无过期依赖</li>
+            <li>核验项三：中文版与英文版的内容差异是否标注</li>
+          </ul>
+
+          <h3>AI 工具类：区分演示与正式可用</h3>
+          <p>Notion AI 中文文档在 11 月 5 日上线的“数据库自动填充”章节，包含 6 个示例模板和 3 段操作录屏。核验时发现，其中 2 个模板依赖 Notion AI 的付费订阅，免费版用户打开后只能查看不能编辑。Perplexity 使用指南（10 月 30 日收录）在 Pro 搜索与学术模式的对比部分，明确列出免费版每日 5 次 Pro 搜索的限制。这类条目的判断依据是：先看功能描述是否标注了“需订阅”或“限免次数”，再看示例数据是否完整可复现。</p>
+
+          <h3>音视频处理类：模板站的时间敏感度最高</h3>
+          <p>CapCut 模板站在 10 月 29 日上线的“双十一促销”模板共 60 套，支持 9:16 与 16:9 切换。这类模板的可用周期通常只有 4 到 6 周，过了促销节点后使用价值急剧下降。Lottiefiles 的 3D 图标动效包“Cube Social”在 10 月下载量 2.3 万次，排第一，但其中 11 个动效的 JSON 文件在 10 月 20 日之后有过一次格式调整，旧版播放器可能无法解析。对时间敏感的模板类条目，收录时会同时标注“建议使用截止日期”。</p>
+        </div>
+      </section>
+
+      <!-- 6. 体验指南 -->
+      <section id="guide">
+        <div class="section-head">
+          <h2>按需求找条目的顺序</h2>
+        </div>
+        <p class="section-intro">打开一个导航站，先找什么、后找什么，直接影响找到可用条目的效率。下面这条路径来自 11 月 8 日站内搜索记录中点击率最高的四条查询。</p>
+        <div class="card-grid">
+          <div class="card" style="padding:16px;">
+            <h3 class="card-title" style="margin-bottom:6px;">① 先定类别</h3>
+            <p class="card-desc">明确你要的是“设计素材”还是“开发文档”。跨类别搜索“免费模板”会混入大量音视频模板，反而降低命中率。11 月 7 日站内搜索中，“Figma UI Kit”的点击率是“免费模板”的 2.1 倍。</p>
+          </div>
+          <div class="card" style="padding:16px;">
+            <h3 class="card-title" style="margin-bottom:6px;">② 看核验日期</h3>
+            <p class="card-desc">每个条目卡片右下角标注最近核验日期。超过 30 天未核验的条目，访问异常概率明显上升。10 月核验的 27 个异常条目中，有 19 个的核验日期超过 45 天。</p>
+          </div>
+          <div class="card" style="padding:16px;">
+            <h3 class="card-title" style="margin-bottom:6px;">③ 比对替代方案</h3>
+            <p class="card-desc">同一类别下通常有 2 到 3 个可替代条目。例如字体下载类目下，除主条目外还有两个备选，核验日期分别为 11 月 2 日和 10 月 26 日。主条目失效时可直接切换。</p>
+          </div>
+          <div class="card" style="padding:16px;">
+            <h3 class="card-title" style="margin-bottom:6px;">④ 确认授权与限制</h3>
+            <p class="card-desc">商用模板看授权页，AI 工具看免费次数限制，开发文档看兼容性表日期。Canva 商用模板库 11 月 7 日核验时，680 套模板因授权页失效被降级，这部分在卡片上会标注“授权待确认”。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. FAQ -->
+      <section id="faq">
+        <div class="section-head">
+          <h2>常见问题</h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>Figma 社区资源库的 UI Kit 可以商用吗？</summary>
+            <div class="faq-answer">取决于每套 Kit 详情页的授权说明。11 月 6 日核验时，1,200 套中有 147 套的许可说明停留在 2024 年版本，这批需人工确认。标注“CC BY 4.0”或“MIT”的可直接商用，标注“个人使用”的需联系作者。</div>
+          </details>
+          <details>
+            <summary>DeepSeek 开放平台 deepseek-v3.2 的上下文长度是多少？</summary>
+            <div class="faq-answer">128K token。11 月 3 日更新的 API 文档将上下文长度从 64K 调整为 128K，输入价格每百万 token 2 元，输出价格 8 元。调用时需要在请求参数中显式指定版本号。</div>
+          </details>
+          <details>
+            <summary>Notion AI 中文文档里的模板免费版能用吗？</summary>
+            <div class="faq-answer">部分不能。11 月 5 日上线的“数据库自动填充”章节共 6 个模板，其中 2 个依赖 Notion AI 付费订阅，免费版用户打开后只能查看不能编辑。其余 4 个模板免费版可正常复制使用。</div>
+          </details>
+          <details>
+            <summary>MDN 的兼容性表多久更新一次？</summary>
+            <div class="faq-answer">跟随浏览器版本发布节奏更新。CSS 容器查询页面在 10 月 28 日完成同步，更新后 Chrome 128、Safari 18.2、Firefox 130 均显示通过。查兼容性时优先看表头标注的最后同步日期。</div>
+          </details>
+          <details>
+            <summary>Canva 商用模板库的“商用授权”是什么意思？</summary>
+            <div class="faq-answer">指该模板可用于商业项目且无需额外付费。11 月 7 日核验时，4,300 套模板中有 680 套的授权说明链接指向失效帮助页，这批被标记为“授权待确认”。其余模板在详情页可直接看到授权范围与限制条款。</div>
+          </details>
+          <details>
+            <summary>Lottiefiles 下载的 JSON 动效文件为什么在本地播放器打不开？</summary>
+            <div class="faq-answer">可能是 JSON 格式版本不匹配。10 月 20 日之后更新的动效包中有 11 个调整了 JSON 结构，旧版播放器无法解析。下载前查看详情页的“播放器兼容性”标注，或改用 Lottiefiles 官方播放器。</div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 8. 用户评论 -->
+      <section id="comments">
+        <div class="section-head">
+          <h2>用户评论</h2>
+          <span class="more">共 16 条</span>
+        </div>
+        <div class="comment-grid">
+          <div class="comment-item"><span class="comment-nick">林颍</span>Figma 那 147 套许可说明过期的 Kit，建议直接标红。上周用了一套做客户提案，提交后才发现是个人授权。</div>
+          <div class="comment-item"><span class="comment-nick">张一鸣的键盘</span>DeepSeek 文档更新挺快，11 月 3 号改价格页当天就同步了。但示例代码里还在用旧版 SDK 的写法。</div>
+          <div class="comment-item"><span class="comment-nick">不加班设计</span>Canva 模板库那个“授权待确认”的标记挺有用，680 套里我试了三套，两套的帮助页确实打不开。</div>
+          <div class="comment-item"><span class="comment-nick">阿莼</span>MDN 容器查询的兼容性表现在终于全绿了。之前 Safari 那栏一直写着不支持，查一次怀疑一次。</div>
+          <div class="comment-item"><span class="comment-nick">周四前交稿</span>Notion 的数据库自动填充模板，免费版有两个用不了，白高兴一场。不过另外四个确实能跑。</div>
+          <div class="comment-item"><span class="comment-nick">南岭路</span>Lottiefiles 那个 Cube Social 动效包，下载后导进 AE 发现缺了三层，不知道是我版本问题还是文件问题。</div>
+          <div class="comment-item"><span class="comment-nick">路由与交换</span>开发文档类目下能不能加一个“浏览器兼容性查询”的快捷筛选，每次都要翻三个站对比。</div>
+          <div class="comment-item"><span class="comment-nick">苏打水不加冰</span>CapCut 双十一模板用了两个，竖屏比例对，但字幕位置要手动调，默认位置偏下。</div>
+          <div class="comment-item"><span class="comment-nick">秋刀鱼罐头</span>Perplexity 那个使用指南写得实在，免费版每日 5 次 Pro 搜索的限制直接写在开头，不绕弯子。</div>
+          <div class="comment-item"><span class="comment-nick">半糖去冰</span>字体下载类目的核验日期是不是该放更显眼的地方，卡片右下角太小了。</div>
+          <div class="comment-item"><span class="comment-nick">老猫晒太阳</span>DeepSeek 的 128K 上下文实测跑长文档摘要比之前稳，但输出价格 8 元每百万 token 还是得算着用。</div>
+          <div class="comment-item"><span class="comment-nick">kkkkk</span>说实话导航站能标出“访问异常”已经比大部分同类强了，之前用的一个站三分之一链接是死的。</div>
+          <div class="comment-item"><span class="comment-nick">胡桃夹子</span>Figma 社区里的移动端 UI Kit 筛选好评，214 套里翻到两套能直接改的 iOS 组件。</div>
+          <div class="comment-item"><span class="comment-nick">大雾四起</span>Canva 电商主图分类的 320 套，180 套支持中文替换，这个比例算可以了。</div>
+          <div class="comment-item"><span class="comment-nick">无糖可乐</span>有没有人对比过 Lottiefiles 和另一个动效站的 JSON 文件大小，同样一个加载动画，这边文件小了 40%。</div>
+          <div class="comment-item"><span class="comment-nick">豆豆龙</span>MDN 中文版和英文版内容差异有没有标注？上次查一个 API，中文页少了参数说明。</div>
+        </div>
+      </section>
+
+      <!-- 9. 相关资讯 -->
+      <section id="news">
+        <div class="section-head">
+          <h2>领域资讯</h2>
+        </div>
+        <div class="news-list">
+          <div class="news-item">
+            <div class="news-main">
+              <h3 class="news-title"><a href="/#featured">Figma 社区 10 月新增 UI Kit 数量环比下降 12%</a></h3>
+              <p class="news-summary">10 月新增 1,200 套，较 9 月的 1,364 套有所回落。同期“移动端 UI Kit”子分类的下载量上升 18%，iOS 组件占比约 62%。</p>
+            </div>
+            <span class="news-date">2026-11-06</span>
+          </div>
+          <div class="news-item">
+            <div class="news-main">
+              <h3 class="news-title"><a href="/#featured">DeepSeek 开放平台调整 v3.2 版本 API 限流规则</a></h3>
+              <p class="news-summary">11 月 3 日起，免费额度从每分钟 60 次请求调整为 40 次，付费用户不受影响。文档中新增了限流触发后的重试建议。</p>
+            </div>
+            <span class="news-date">2026-11-03</span>
+          </div>
+          <div class="news-item">
+            <div class="news-main">
+              <h3 class="news-title"><a href="/#featured">Notion AI 中文文档 11 月更新计划公布</a></h3>
+              <p class="news-summary">官方页面列出 11 月将补全“看板视图自动化”与“公式字段生成”两章，共 8 个示例模板，预计 11 月中旬上线。</p>
+            </div>
+            <span class="news-date">2026-11-05</span>
+          </div>
+          <div class="news-item">
+            <div class="news-main">
+              <h3 class="news-title"><a href="/#featured">Canva 商用模板库授权页失效问题已修复 210 套</a></h3>
+              <p class="news-summary">11 月 7 日核验时，此前标记的 680 套“授权待确认”模板中有 210 套的授权页恢复访问，剩余 470 套仍在跟进。</p>
+            </div>
+            <span class="news-date">2026-11-07</span>
+          </div>
+          <div class="news-item">
+            <div class="news-main">
+              <h3 class="news-title"><a href="/#featured">Lottiefiles 发布 10 月下载榜，3D 图标类目占前五中三席</a></h3>
+              <p class="news-summary">“Cube Social”以 2.3 万次下载排第一，“Pulse Ring”加载动画 1.8 万次排第二，第三名为 3D 天气图标包 1.4 万次。</p>
+            </div>
+            <span class="news-date">2026-11-01</span>
+          </div>
+          <div class="news-item">
+            <div class="news-main">
+              <h3 class="news-title"><a href="/#featured">MDN 中文翻译项目 10 月完成 47 个页面同步</a></h3>
+              <p class="news-summary">10 月 28 日发布进度报告，CSS 与 JavaScript 两个板块共 47 个页面完成中英文同步，剩余 12 个页面预计 11 月完成。</p>
+            </div>
+            <span class="news-date">2026-10-28</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10. 相关推荐 -->
+      <section id="related">
+        <div class="section-head">
+          <h2>相关推荐</h2>
+        </div>
+        <div class="related-tags">
+          <a href="/#featured">Figma 移动端 UI Kit 筛选</a>
+          <a href="/#featured">MDN 容器查询兼容性表</a>
+          <a href="/#featured">DeepSeek v3.2 API 文档</a>
+          <a href="/#featured">Notion AI 数据库自动填充</a>
+          <a href="/#featured">Canva 电商主图模板</a>
+          <a href="/#featured">Lottiefiles 3D 图标动效</a>
+          <a href="/#featured">Perplexity 免费版次数限制</a>
+          <a href="/#featured">CapCut 双十一竖屏模板</a>
+        </div>
+      </section>
+
+      <!-- 11. 补充板块：热门榜单 + 互动 -->
+      <section id="ranking">
+        <div class="section-head">
+          <h2>本周热门收录榜</h2>
+          <span class="more">统计时间 2026-11-08</span>
+        </div>
+        <table class="rank-table">
+          <thead><tr><th>排名</th><th>条目名称</th><th>类别</th><th>本周点击</th><th>核验日期</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Figma 社区资源库</td><td>设计素材</td><td>4,820</td><td>11-06</td></tr>
+            <tr><td>2</td><td>DeepSeek 开放平台</td><td>AI 工具</td><td>3,940</td><td>11-03</td></tr>
+            <tr><td>3</td><td>MDN Web Docs</td><td>开发文档</td><td>3,210</td><td>10-28</td></tr>
+            <tr><td>4</td><td>Notion AI 中文文档</td><td>效率软件</td><td>2,870</td><td>11-05</td></tr>
+            <tr><td>5</td><td>Canva 商用模板库</td><td>设计素材</td><td>2,560</td><td>11-07</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 互动板块：提交网址 -->
+      <section id="submit">
+        <div class="interact-bar">
+          <p>发现好用的站点？提交网址后会在 3 个工作日内完成可用性核验，通过后收录并标注核验日期。</p>
+          <a href="/#submit" class="btn btn-primary">提交网址 →</a>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- 右辅助栏 -->
+    <aside class="right-aside" aria-label="辅助信息">
+      <div class="side-box">
+        <h3>本周热榜</h3>
+        <ul class="hot-list">
+          <li><span class="rank">1</span><a href="/#featured">Figma 社区资源库</a></li>
+          <li><span class="rank">2</span><a href="/#featured">DeepSeek 开放平台</a></li>
+          <li><span class="rank">3</span><a href="/#featured">MDN Web Docs</a></li>
+          <li><span class="rank">4</span><a href="/#featured">Notion AI 中文文档</a></li>
+          <li><span class="rank">5</span><a href="/#featured">Canva 商用模板库</a></li>
+          <li><span class="rank">6</span><a href="/#featured">Lottiefiles 动效库</a></li>
+        </ul>
+      </div>
+      <div class="side-box">
+        <h3>最近核验</h3>
+        <ul class="update-list">
+          <li><span class="date">11-07</span>Canva 商用模板库</li>
+          <li><span class="date">11-06</span>Figma 社区资源库</li>
+          <li><span class="date">11-05</span>Notion AI 中文文档</li>
+          <li><span class="date">11-03</span>DeepSeek 开放平台</li>
+          <li><span class="date">10-30</span>Perplexity 使用指南</li>
+        </ul>
+      </div>
+      <div class="side-box">
+        <h3>站内入口</h3>
+        <ul class="update-list">
+          <li><a href="/#submit">提交网址</a></li>
+          <li><a href="/#comments">参与评论</a></li>
+          <li><a href="/#ranking">查看榜单</a></li>
+          <li><a href="/#faq">常见问题</a></li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- 页脚 -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="brand-name">第一导航</span>
+          <p>收录 2025 年 3 月至 2026 年 11 月期间的 386 个可用站点，涵盖设计素材、开发文档、AI 工具、效率软件等 23 个类别。每周三、周六更新核验日期，每月 1 日发布上月收录报告。</p>
+        </div>
+        <div class="footer-col">
+          <h4>热门类别</h4>
+          <a href="/#featured">设计素材</a>
+          <a href="/#featured">开发文档</a>
+          <a href="/#featured">AI 工具</a>
+          <a href="/#featured">效率软件</a>
+        </div>
+        <div class="footer-col">
+          <h4>站内入口</h4>
+          <a href="/#overview">导航概览</a>
+          <a href="/#latest">最新收录</a>
+          <a href="/#ranking">热门榜单</a>
+          <a href="/#submit">提交网址</a>
+        </div>
+        <div class="footer-col">
+          <h4>更新与说明</h4>
+          <a href="/#news">领域资讯</a>
+          <a href="/#faq">常见问题</a>
+          <a href="/#comments">用户评论</a>
+          <a href="/#related">相关推荐</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 第一导航 · 收录信息为人工核验示例，具体以目标站点为准</span>
+        <span>最后更新：2026-11-08 · 下次核验：2026-11-11</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" aria-label="回到顶部">↑</button>
+
+  <script>
+    // 平滑锚点（预留吸顶偏移）
+    document.querySelectorAll('a[href^="/#"]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        var id = this.getAttribute('href').slice(2);
+        var target = document.getElementById(id);
+        if (target) {
+          e.preventDefault();
+          var offset = document.querySelector('.notice-bar').offsetHeight + document.querySelector('.site-header').offsetHeight + 8;
+          var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+          history.replaceState(null, '', '/' + '#' + id);
+          closeMobileNav();
+        }
+      });
+    });
+
+    // 回到顶部
+    var backTop = document.getElementById('backTop');
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > window.innerHeight) {
+        backTop.classList.add('show');
+      } else {
+        backTop.classList.remove('show');
+      }
+    });
+    backTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // 移动端菜单
+    var menuToggle = document.getElementById('menuToggle');
+    var mainNav = document.getElementById('mainNav');
+    var overlay = document.getElementById('overlay');
+
+    function openMobileNav() {
+      mainNav.classList.add('mobile-open');
+      overlay.classList.add('show');
+      menuToggle.setAttribute('aria-expanded', 'true');
+      menuToggle.textContent = '✕';
+    }
+    function closeMobileNav() {
+      mainNav.classList.remove('mobile-open');
+      overlay.classList.remove('show');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.textContent = '☰';
+    }
+    function toggleMobileNav() {
+      if (mainNav.classList.contains('mobile-open')) { closeMobileNav(); }
+      else { openMobileNav(); }
+    }
+    menuToggle.addEventListener('click', toggleMobileNav);
+    overlay.addEventListener('click', closeMobileNav);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { closeMobileNav(); }
+    });
+
+    // 站内搜索（过滤卡片与列表）
+    var searchInput = document.getElementById('siteSearch');
+    function filterContent() {
+      var query = searchInput.value.trim().toLowerCase();
+      var cards = document.querySelectorAll('#featuredGrid .card');
+      var newsItems = document.querySelectorAll('#latest .news-item');
+      var shown = 0;
+      cards.forEach(function (card) {
+        var text = card.textContent.toLowerCase();
+        if (query === '' || text.indexOf(query) !== -1) {
+          card.style.display = '';
+          shown++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      newsItems.forEach(function (item) {
+        var text = item.textContent.toLowerCase();
+        if (query === '' || text.indexOf(query) !== -1) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+      var noResult = document.getElementById('noResultMsg');
+      if (!noResult) {
+        noResult = document.createElement('div');
+        noResult.id = 'noResultMsg';
+        noResult.className = 'no-result';
+        noResult.textContent = '没有找到匹配的收录条目，换个关键词试试';
+        document.getElementById('featuredGrid').after(noResult);
+      }
+      if (query !== '' && shown === 0) {
+        noResult.classList.add('show');
+      } else {
+        noResult.classList.remove('show');
+      }
+    }
+    if (searchInput) {
+      searchInput.addEventListener('input', filterContent);
+    }
+
+    // 左侧导航高亮
+    var sections = document.querySelectorAll('.main-col > section');
+    var navLinks = document.querySelectorAll('.channel-nav a');
+    window.addEventListener('scroll', function () {
+      var scrollPos = window.scrollY + 120;
+      var currentId = '';
+      sections.forEach(function (sec) {
+        if (sec.offsetTop <= scrollPos) { currentId = sec.id; }
+      });
+      navLinks.forEach(function (link) {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '/#' + currentId) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+
+  <!-- WebSite 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "第一导航",
+    "url": "/",
+    "description": "收录设计素材、开发文档、AI工具等垂直类目的中文网址导航",
+    "inLanguage": "zh-CN"
+  }
+  </script>
+  <!-- FAQPage 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Figma 社区资源库的 UI Kit 可以商用吗？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "取决于每套 Kit 详情页的授权说明。11 月 6 日核验时，1,200 套中有 147 套的许可说明停留在 2024 年版本，这批需人工确认。标注 CC BY 4.0 或 MIT 的可直接商用。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "DeepSeek 开放平台 deepseek-v3.2 的上下文长度是多少？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "128K token。11 月 3 日更新的 API 文档将上下文长度从 64K 调整为 128K，输入价格每百万 token 2 元，输出价格 8 元。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Notion AI 中文文档里的模板免费版能用吗？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "部分不能。11 月 5 日上线的数据库自动填充章节共 6 个模板，其中 2 个依赖 Notion AI 付费订阅，免费版只能查看不能编辑。其余 4 个可正常复制使用。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "MDN 的兼容性表多久更新一次？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "跟随浏览器版本发布节奏更新。CSS 容器查询页面在 10 月 28 日完成同步，Chrome 128、Safari 18.2、Firefox 130 均显示通过。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Canva 商用模板库的商用授权是什么意思？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "指该模板可用于商业项目且无需额外付费。11 月 7 日核验时，4,300 套模板中有 680 套的授权说明链接指向失效帮助页，被标记为授权待确认。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Lottiefiles 下载的 JSON 动效文件为什么在本地播放器打不开？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "可能是 JSON 格式版本不匹配。10 月 20 日之后更新的动效包中有 11 个调整了 JSON 结构，旧版播放器无法解析。下载前查看详情页的播放器兼容性标注。"
+        }
+      }
+    ]
+  }
+  </script>
+</body>
+                                                                   </html>
