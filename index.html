@@ -1,0 +1,1296 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JK白袜少女美图 - 日系校园风视觉内容聚合</title>
+  <meta name="description" content="JK白袜少女美图汇聚日系制服写真、白袜搭配特辑、校园场景外拍与少女氛围图集。这里收录百褶裙穿搭参考、过膝袜造型图鉴、教室与天台外拍作品，适合喜爱日系清纯风格的读者浏览收藏。">
+  <meta name="keywords" content="JK白袜少女美图">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f7d9e3'/%3E%3Cpath d='M20 44c0-8 5-14 12-14s12 6 12 14' fill='none' stroke='%23c96b8a' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='24' cy='24' r='3' fill='%23c96b8a'/%3E%3Ccircle cx='40' cy='24' r='3' fill='%23c96b8a'/%3E%3C/svg%3E">
+  <style>
+    :root{
+      --pink:#d47a98;
+      --pink-light:#f7e6ec;
+      --pink-deep:#a84d6c;
+      --bg:#fdf8f9;
+      --panel:#ffffff;
+      --text:#3c2e33;
+      --text-mid:#6f5b63;
+      --text-soft:#9e8992;
+      --line:#eee2e6;
+      --radius-card:18px;
+      --radius-btn:10px;
+      --radius-tag:20px;
+      --shadow:0 4px 16px rgba(180,120,140,.08);
+      --shadow-hover:0 10px 28px rgba(180,120,140,.16);
+      --font: "PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;scroll-padding-top:104px;}
+    body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.7;font-size:15px;}
+    a{color:inherit;text-decoration:none;}
+    img{display:block;max-width:100%;}
+    ul{list-style:none;}
+    .wrap{max-width:1320px;margin:0 auto;padding:0 24px;}
+
+    /* 吸顶公告条 */
+    .notice-bar{
+      position:sticky;top:0;z-index:100;
+      background:linear-gradient(90deg,#f8dde6,#fceef3 60%,#f8dde6);
+      border-bottom:1px solid #f0cdd9;
+      font-size:13px;color:#8a4a60;
+    }
+    .notice-inner{
+      max-width:1320px;margin:0 auto;padding:8px 24px;
+      display:flex;flex-wrap:wrap;align-items:center;gap:6px 20px;
+    }
+    .notice-brand{font-weight:700;color:#a84d6c;letter-spacing:.5px;}
+    .notice-item{display:inline-flex;align-items:center;gap:6px;}
+    .notice-item::before{content:"";width:5px;height:5px;border-radius:50%;background:#d47a98;}
+
+    /* 吸顶页头 */
+    .site-header{
+      position:sticky;top:36px;z-index:90;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .header-inner{
+      max-width:1320px;margin:0 auto;padding:0 24px;
+      display:flex;align-items:center;gap:18px;height:64px;
+    }
+    .logo{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+    .logo svg{width:34px;height:34px;}
+    .logo-text{font-size:18px;font-weight:800;color:var(--pink-deep);letter-spacing:.4px;white-space:nowrap;}
+    .main-nav{display:flex;gap:2px;flex:1;overflow-x:auto;scrollbar-width:none;}
+    .main-nav::-webkit-scrollbar{display:none;}
+    .main-nav a{
+      padding:6px 13px;border-radius:var(--radius-btn);font-size:14px;color:var(--text-mid);
+      white-space:nowrap;transition:background .2s,color .2s;
+    }
+    .main-nav a:hover,.main-nav a.active{background:var(--pink-light);color:var(--pink-deep);font-weight:600;}
+    .header-search{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+    .header-search input{
+      width:150px;padding:7px 12px;border:1px solid var(--line);border-radius:var(--radius-btn);
+      font-size:13px;background:#fdf5f7;outline:none;transition:border .2s,width .25s;
+    }
+    .header-search input:focus{border-color:var(--pink);width:190px;}
+    .search-result-tip{
+      position:absolute;top:100%;right:24px;margin-top:6px;background:#fff;border:1px solid var(--line);
+      border-radius:10px;padding:8px 14px;font-size:12px;color:var(--text-mid);
+      box-shadow:var(--shadow);display:none;
+    }
+    .search-result-tip.show{display:block;}
+    .menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:18px;cursor:pointer;color:var(--pink-deep);}
+    .mobile-nav{
+      display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:200;
+      background:rgba(60,46,51,.4);backdrop-filter:blur(2px);
+    }
+    .mobile-nav.open{display:block;}
+    .mobile-nav-panel{
+      position:absolute;top:0;right:0;width:260px;height:100%;background:#fff;
+      padding:24px 18px;overflow-y:auto;box-shadow:-8px 0 30px rgba(0,0,0,.12);
+    }
+    .mobile-nav-panel h3{font-size:15px;color:var(--pink-deep);margin-bottom:14px;}
+    .mobile-nav-panel a{display:block;padding:11px 8px;border-bottom:1px solid var(--line);font-size:14px;color:var(--text-mid);}
+    .mobile-nav-panel a:hover{color:var(--pink-deep);}
+    .close-mobile{position:absolute;top:12px;right:14px;background:none;border:none;font-size:22px;color:var(--text-soft);cursor:pointer;}
+
+    /* 首屏 */
+    .hero{
+      position:relative;overflow:hidden;
+      background:
+        radial-gradient(circle at 82% 20%, #fce3eb 0%, transparent 42%),
+        radial-gradient(circle at 12% 78%, #fdeef3 0%, transparent 38%),
+        linear-gradient(160deg,#fdf7f9 0%,#fae9ef 100%);
+      border-bottom:1px solid var(--line);
+    }
+    .hero-inner{
+      max-width:1320px;margin:0 auto;padding:52px 24px 56px;
+      display:grid;grid-template-columns:1fr 380px;gap:48px;align-items:center;
+    }
+    .hero-eyebrow{
+      display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:2px;
+      color:var(--pink-deep);font-weight:700;margin-bottom:16px;
+      background:#fff;border:1px solid #f0cdd9;border-radius:20px;padding:3px 14px;
+    }
+    .hero h1{
+      font-size:clamp(32px,4.4vw,52px);line-height:1.15;font-weight:900;
+      color:#3c2e33;letter-spacing:1px;margin-bottom:18px;
+    }
+    .hero h1 .accent{color:var(--pink-deep);}
+    .hero-desc{
+      font-size:15.5px;color:var(--text-mid);max-width:560px;margin-bottom:26px;line-height:1.85;
+    }
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
+    .btn-primary{
+      display:inline-block;background:var(--pink-deep);color:#fff;font-size:14px;font-weight:600;
+      padding:11px 26px;border-radius:var(--radius-btn);transition:background .2s,transform .2s;
+    }
+    .btn-primary:hover{background:#8f3d59;transform:translateY(-2px);}
+    .btn-ghost{
+      display:inline-block;background:#fff;border:1px solid #e9c6d3;color:var(--pink-deep);
+      font-size:14px;font-weight:600;padding:10px 22px;border-radius:var(--radius-btn);
+      transition:border .2s,transform .2s;
+    }
+    .btn-ghost:hover{border-color:var(--pink);transform:translateY(-2px);}
+    .hero-visual{position:relative;height:320px;}
+    .hero-visual .circle{
+      position:absolute;border-radius:50%;
+    }
+    .hv-1{width:280px;height:280px;background:radial-gradient(circle at 34% 28%,#fbd0dd,#f0aec5);top:20px;right:40px;opacity:.9;}
+    .hv-2{width:140px;height:140px;background:#fff;border:2px solid #f0cdd9;bottom:10px;left:10px;opacity:.75;}
+    .hv-3{width:80px;height:80px;background:#f7d9e3;top:0;left:0;}
+    .hero-visual .bow{
+      position:absolute;top:110px;right:130px;width:120px;height:120px;
+      animation:bob 5s ease-in-out infinite;
+    }
+    @keyframes bob{0%,100%{transform:translateY(0) rotate(-4deg);}50%{transform:translateY(-12px) rotate(4deg);}}
+    @media(prefers-reduced-motion:reduce){.hero-visual .bow{animation:none;}}
+
+    /* 三栏布局 */
+    .main-layout{
+      max-width:1320px;margin:0 auto;padding:40px 24px 20px;
+      display:grid;grid-template-columns:178px minmax(0,1fr) 240px;gap:30px;
+    }
+    .left-channel{position:sticky;top:120px;align-self:start;}
+    .left-channel h3{
+      font-size:13px;letter-spacing:1.5px;color:var(--text-soft);font-weight:700;
+      margin-bottom:12px;padding-left:10px;
+    }
+    .channel-list{display:flex;flex-direction:column;gap:3px;}
+    .channel-list a{
+      display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:8px;
+      font-size:14px;color:var(--text-mid);transition:background .18s,color .18s;
+    }
+    .channel-list a::before{content:"";width:4px;height:14px;border-radius:2px;background:#f0d4de;transition:background .18s;}
+    .channel-list a:hover{background:var(--pink-light);color:var(--pink-deep);}
+    .channel-list a:hover::before{background:var(--pink);}
+
+    .content-main{min-width:0;}
+    .side-panel{position:sticky;top:120px;align-self:start;display:flex;flex-direction:column;gap:22px;}
+
+    /* 板块通用 */
+    .section{margin-bottom:44px;scroll-margin-top:110px;}
+    .section-head{margin-bottom:18px;}
+    .section-head h2{
+      font-size:21px;font-weight:800;color:#3c2e33;letter-spacing:.5px;
+      display:flex;align-items:center;gap:10px;
+    }
+    .section-head h2::before{
+      content:"";width:6px;height:22px;border-radius:3px;background:var(--pink);
+    }
+    .section-sub{font-size:13px;color:var(--text-soft);margin-top:6px;padding-left:16px;}
+
+    /* 概览 */
+    .overview-box{
+      background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+      padding:26px 28px;box-shadow:var(--shadow);font-size:14.5px;color:var(--text-mid);
+      line-height:1.9;
+    }
+    .overview-box strong{color:var(--pink-deep);}
+
+    /* 精选卡片 */
+    .card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px;}
+    .pic-card{
+      background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+      overflow:hidden;box-shadow:var(--shadow);transition:transform .22s,box-shadow .22s;
+      display:flex;flex-direction:column;
+    }
+    .pic-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);}
+    .pic-card img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .35s;}
+    .pic-card:hover img{transform:scale(1.03);}
+    .pic-card-body{padding:13px 15px 15px;display:flex;flex-direction:column;gap:7px;flex:1;}
+    .pic-card-title{font-size:15px;font-weight:700;color:#3c2e33;line-height:1.4;}
+    .pic-card-desc{font-size:12.5px;color:var(--text-mid);line-height:1.6;flex:1;}
+    .tag-row{display:flex;flex-wrap:wrap;gap:5px;}
+    .tag{
+      font-size:11px;padding:2px 9px;border-radius:var(--radius-tag);
+      background:var(--pink-light);color:var(--pink-deep);line-height:1.6;
+    }
+    .tag.outline{background:#fff;border:1px solid #e9c6d3;color:#a86e82;}
+    .card-meta{display:flex;align-items:center;justify-content:space-between;font-size:11.5px;color:var(--text-soft);border-top:1px dashed var(--line);padding-top:8px;margin-top:2px;}
+    .card-meta .hot{color:#d47a98;font-weight:700;}
+
+    /* 动态列表 */
+    .update-list{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);overflow:hidden;box-shadow:var(--shadow);}
+    .update-item{
+      display:flex;gap:14px;padding:14px 18px;border-bottom:1px solid var(--line);
+      transition:background .18s;
+    }
+    .update-item:last-child{border-bottom:none;}
+    .update-item:hover{background:#fdf5f7;}
+    .update-date{flex-shrink:0;width:70px;font-size:12px;color:var(--text-soft);padding-top:2px;}
+    .update-body{min-width:0;}
+    .update-name{font-size:14.5px;font-weight:700;color:#3c2e33;margin-bottom:2px;}
+    .update-name span{font-size:11.5px;font-weight:500;color:var(--pink-deep);background:var(--pink-light);border-radius:10px;padding:1px 8px;margin-left:6px;}
+    .update-desc{font-size:12.5px;color:var(--text-mid);line-height:1.55;}
+
+    /* 分类入口 */
+    .cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;}
+    .cat-item{
+      display:flex;flex-direction:column;gap:4px;padding:15px 16px;border-radius:14px;
+      background:var(--panel);border:1px solid var(--line);transition:border .2s,background .2s,transform .2s;
+    }
+    .cat-item:hover{border-color:#e9c6d3;background:#fdf5f7;transform:translateY(-2px);}
+    .cat-name{font-size:14.5px;font-weight:700;color:var(--pink-deep);}
+    .cat-count{font-size:11.5px;color:var(--text-soft);}
+
+    /* 深度解析 */
+    .deep-article{
+      background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+      padding:30px 32px;box-shadow:var(--shadow);
+    }
+    .deep-article h3{
+      font-size:17px;font-weight:800;color:#3c2e33;margin:26px 0 12px;
+      padding-left:12px;border-left:4px solid var(--pink);
+    }
+    .deep-article h3:first-child{margin-top:0;}
+    .deep-article p{font-size:14.5px;color:var(--text-mid);margin-bottom:12px;line-height:1.9;}
+    .deep-article ul{padding-left:20px;margin-bottom:14px;}
+    .deep-article li{font-size:14px;color:var(--text-mid);margin-bottom:7px;line-height:1.75;}
+    .deep-article strong{color:var(--pink-deep);}
+    .data-panel{
+      background:#fdf5f7;border-radius:12px;padding:16px 18px;margin:16px 0;
+      font-size:13.5px;color:var(--text-mid);border-left:3px solid var(--pink);
+    }
+    .data-panel b{color:var(--pink-deep);}
+
+    /* 指南步骤 */
+    .guide-steps{display:flex;flex-direction:column;gap:14px;}
+    .guide-step{
+      display:flex;gap:16px;background:var(--panel);border:1px solid var(--line);
+      border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);
+    }
+    .step-num{
+      flex-shrink:0;width:34px;height:34px;border-radius:50%;background:var(--pink-light);
+      color:var(--pink-deep);font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;
+    }
+    .step-body h4{font-size:15px;color:#3c2e33;margin-bottom:5px;}
+    .step-body p{font-size:13.5px;color:var(--text-mid);line-height:1.7;}
+
+    /* FAQ */
+    .faq-list{display:flex;flex-direction:column;gap:10px;}
+    .faq-item{
+      background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;
+    }
+    .faq-item summary{
+      cursor:pointer;padding:14px 18px;font-size:14.5px;font-weight:600;color:#3c2e33;
+      list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;
+      transition:background .18s;
+    }
+    .faq-item summary::-webkit-details-marker{display:none;}
+    .faq-item summary::after{content:"+";font-size:18px;color:var(--pink);font-weight:400;flex-shrink:0;}
+    .faq-item[open] summary::after{content:"−";}
+    .faq-item summary:hover{background:#fdf5f7;}
+    .faq-answer{padding:0 18px 15px;font-size:13.5px;color:var(--text-mid);line-height:1.8;}
+
+    /* 评论 */
+    .comment-list{display:flex;flex-direction:column;gap:10px;}
+    .comment-item{
+      background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:13px 16px;
+      display:flex;gap:12px;
+    }
+    .avatar{
+      flex-shrink:0;width:34px;height:34px;border-radius:50%;background:var(--pink-light);
+      color:var(--pink-deep);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;
+    }
+    .comment-body{min-width:0;}
+    .comment-name{font-size:12.5px;font-weight:700;color:var(--pink-deep);margin-bottom:2px;}
+    .comment-text{font-size:13.5px;color:var(--text-mid);line-height:1.65;}
+
+    /* 资讯 */
+    .news-list{display:flex;flex-direction:column;gap:12px;}
+    .news-item{
+      background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;
+      transition:box-shadow .2s;
+    }
+    .news-item:hover{box-shadow:var(--shadow-hover);}
+    .news-title{font-size:15px;font-weight:700;color:#3c2e33;margin-bottom:4px;}
+    .news-meta{font-size:11.5px;color:var(--text-soft);margin-bottom:6px;}
+    .news-desc{font-size:13px;color:var(--text-mid);line-height:1.6;}
+
+    /* 标签索引 */
+    .tag-index{display:flex;flex-wrap:wrap;gap:9px;}
+    .tag-index a{
+      font-size:13px;padding:7px 15px;border-radius:var(--radius-tag);background:var(--panel);
+      border:1px solid var(--line);color:var(--text-mid);transition:border .2s,color .2s,background .2s;
+    }
+    .tag-index a:hover{border-color:#e9c6d3;color:var(--pink-deep);background:#fdf5f7;}
+
+    /* 榜单 */
+    .rank-list{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);overflow:hidden;box-shadow:var(--shadow);}
+    .rank-item{display:flex;align-items:center;gap:13px;padding:12px 16px;border-bottom:1px solid var(--line);}
+    .rank-item:last-child{border-bottom:none;}
+    .rank-num{flex-shrink:0;width:24px;height:24px;border-radius:7px;background:var(--pink-light);color:var(--pink-deep);font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;}
+    .rank-num.top{background:var(--pink-deep);color:#fff;}
+    .rank-name{flex:1;font-size:14px;color:#3c2e33;min-width:0;}
+    .rank-name small{display:block;font-size:11.5px;color:var(--text-soft);}
+    .rank-score{font-size:12.5px;color:var(--pink-deep);font-weight:700;flex-shrink:0;}
+
+    /* 侧栏盒子 */
+    .side-box{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow);}
+    .side-box h3{font-size:14px;color:var(--pink-deep);font-weight:800;margin-bottom:12px;letter-spacing:.5px;}
+    .side-hot li{display:flex;gap:9px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13px;color:var(--text-mid);}
+    .side-hot li:last-child{border-bottom:none;}
+    .side-hot .n{color:var(--pink);font-weight:800;font-size:12px;flex-shrink:0;}
+    .side-tags{display:flex;flex-wrap:wrap;gap:7px;}
+    .side-tags a{font-size:12px;padding:4px 11px;border-radius:var(--radius-tag);background:#fdf5f7;color:#a86e82;transition:background .18s;}
+    .side-tags a:hover{background:var(--pink-light);color:var(--pink-deep);}
+    .side-note{font-size:12.5px;color:var(--text-soft);line-height:1.7;}
+
+    /* 投稿 */
+    .upload-box{
+      background:linear-gradient(120deg,#fceef3,#fdf7f9);border:1px dashed #e9c6d3;border-radius:var(--radius-card);
+      padding:26px 28px;display:flex;flex-wrap:wrap;align-items:center;gap:20px;justify-content:space-between;
+    }
+    .upload-box h3{font-size:16px;color:var(--pink-deep);margin-bottom:5px;}
+    .upload-box p{font-size:13px;color:var(--text-mid);}
+    .upload-box .btn-primary{flex-shrink:0;}
+
+    /* 页尾 */
+    .site-footer{background:#3c2e33;color:#d9c9ce;margin-top:30px;padding:48px 24px 28px;}
+    .footer-inner{max-width:1320px;margin:0 auto;}
+    .footer-top{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:36px;margin-bottom:34px;}
+    .footer-brand .logo-text{color:#f7d9e3;font-size:17px;margin-bottom:10px;display:block;}
+    .footer-brand p{font-size:13px;color:#bfa9b0;line-height:1.8;max-width:280px;}
+    .footer-col h4{font-size:13.5px;color:#f7d9e3;font-weight:700;margin-bottom:12px;letter-spacing:.5px;}
+    .footer-col a{display:block;font-size:13px;color:#c9b5bc;padding:4px 0;transition:color .18s;}
+    .footer-col a:hover{color:#f7d9e3;}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;font-size:12px;color:#9e8992;line-height:1.8;display:flex;flex-wrap:wrap;gap:6px 20px;justify-content:space-between;}
+
+    /* 回到顶部 */
+    .back-top{
+      position:fixed;right:22px;bottom:26px;width:44px;height:44px;border-radius:50%;
+      background:var(--pink-deep);color:#fff;border:none;font-size:18px;cursor:pointer;
+      box-shadow:0 6px 18px rgba(168,77,108,.3);display:none;align-items:center;justify-content:center;
+      z-index:80;transition:background .2s,transform .2s;
+    }
+    .back-top:hover{background:#8f3d59;transform:translateY(-3px);}
+    .back-top.show{display:flex;}
+
+    /* 响应式 */
+    @media(max-width:1080px){
+      .main-layout{grid-template-columns:170px minmax(0,1fr);}
+      .side-panel{display:none;}
+      .hero-inner{grid-template-columns:1fr 300px;gap:30px;}
+    }
+    @media(max-width:860px){
+      .main-nav{display:none;}
+      .menu-btn{display:block;}
+      .header-search input{width:110px;}
+      .header-search input:focus{width:140px;}
+      .hero-inner{grid-template-columns:1fr;}
+      .hero-visual{display:none;}
+      .main-layout{grid-template-columns:1fr;padding-top:28px;}
+      .left-channel{display:none;}
+      .footer-top{grid-template-columns:1fr 1fr;gap:26px;}
+    }
+    @media(max-width:740px){
+      .notice-inner{padding:7px 16px;font-size:12px;}
+      .notice-brand{width:100%;}
+      .header-inner{padding:0 16px;height:58px;gap:10px;}
+      .site-header{top:34px;}
+      .logo-text{font-size:15px;}
+      .header-search{display:none;}
+      .wrap,.main-layout{padding-left:16px;padding-right:16px;}
+      .hero-inner{padding:34px 16px 38px;}
+      .hero h1{font-size:30px;}
+      .card-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:13px;}
+      .pic-card-body{padding:11px 12px 13px;}
+      .deep-article{padding:22px 18px;}
+      .footer-top{grid-template-columns:1fr;}
+      .upload-box{flex-direction:column;align-items:flex-start;}
+      .footer-bottom{flex-direction:column;}
+    }
+    @media(prefers-reduced-motion:reduce){
+      *{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
+    }
+    :focus-visible{outline:2px solid var(--pink-deep);outline-offset:2px;}
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶公告条 -->
+<div class="notice-bar">
+  <div class="notice-inner">
+    <span class="notice-brand">JK白袜少女美图</span>
+    <span class="notice-item">11月7日 · 《放学后走廊》系列更新第8卷</span>
+    <span class="notice-item">11月6日 · 白袜特辑新增12组天台外拍</span>
+    <span class="notice-item">11月5日 · 秋季制服×乐福鞋图鉴上线</span>
+  </div>
+</div>
+
+<!-- 吸顶页头 -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/#hero" class="logo" aria-label="JK白袜少女美图首页">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#f7e6ec"/>
+        <path d="M20 44c0-8 5-14 12-14s12 6 12 14" fill="none" stroke="#a84d6c" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="24" cy="24" r="3" fill="#d47a98"/>
+        <circle cx="40" cy="24" r="3" fill="#d47a98"/>
+        <path d="M30 34c1.5 1.5 2.5 2.5 2 4" stroke="#d47a98" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </svg>
+      <span class="logo-text">JK白袜少女美图</span>
+    </a>
+    <nav class="main-nav" aria-label="主题导航">
+      <a href="/#overview" class="active">领域概览</a>
+      <a href="/#featured">精选图集</a>
+      <a href="/#updates">最新更新</a>
+      <a href="/#categories">分类入口</a>
+      <a href="/#deep">深度解析</a>
+      <a href="/#guide">体验指南</a>
+      <a href="/#faq">常见问答</a>
+      <a href="/#comments">用户评论</a>
+      <a href="/#news">相关资讯</a>
+      <a href="/#ranking">热门榜单</a>
+    </nav>
+    <div class="header-search">
+      <input type="search" id="searchInput" placeholder="搜索图集或标签…" aria-label="站内搜索">
+      <div class="search-result-tip" id="searchTip"></div>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="打开导航菜单" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<!-- 移动端导航 -->
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-panel">
+    <button class="close-mobile" id="closeMobile" aria-label="关闭菜单">×</button>
+    <h3>频道导航</h3>
+    <a href="/#overview">领域概览</a>
+    <a href="/#featured">精选图集</a>
+    <a href="/#updates">最新更新</a>
+    <a href="/#categories">分类入口</a>
+    <a href="/#deep">深度解析</a>
+    <a href="/#guide">体验指南</a>
+    <a href="/#faq">常见问答</a>
+    <a href="/#comments">用户评论</a>
+    <a href="/#news">相关资讯</a>
+    <a href="/#related">相关推荐</a>
+    <a href="/#ranking">热门榜单</a>
+  </div>
+</div>
+
+<!-- 首屏 -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <span class="hero-eyebrow">SCHOOL UNIFORM LOOKBOOK</span>
+      <h1>JK白袜少女美图</h1>
+      <p class="hero-desc">
+        收录日系制服写真、百褶裙白袜搭配、教室走廊与天台外拍场景。从经典藏青二本线到关西襟水手服，从过膝袜到短袜堆堆袜，按风格与拍摄场景归档，每次打开都有新图可翻。
+      </p>
+      <div class="hero-actions">
+        <a href="/#featured" class="btn-primary">浏览精选图集</a>
+        <a href="/#categories" class="btn-ghost">按风格分类</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="circle hv-1"></div>
+      <div class="circle hv-2"></div>
+      <div class="circle hv-3"></div>
+      <svg class="bow" viewBox="0 0 120 120">
+        <path d="M60 58c-14-18-38-22-42-8-4 12 14 18 42 8z" fill="#f0aec5" opacity=".85"/>
+        <path d="M60 58c14-18 38-22 42-8 4 12-14 18-42 8z" fill="#f0aec5" opacity=".85"/>
+        <circle cx="60" cy="58" r="8" fill="#a84d6c"/>
+        <path d="M56 66c-2 10-6 16-10 22M64 66c2 10 6 16 10 22" stroke="#a84d6c" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 主布局：三栏 -->
+<div class="main-layout">
+
+  <!-- 左侧频道索引 -->
+  <aside class="left-channel" aria-label="频道索引">
+    <h3>频道索引</h3>
+    <nav class="channel-list">
+      <a href="/#overview">领域概览</a>
+      <a href="/#featured">精选图集</a>
+      <a href="/#updates">最新更新</a>
+      <a href="/#categories">分类入口</a>
+      <a href="/#deep">深度解析</a>
+      <a href="/#guide">体验指南</a>
+      <a href="/#faq">常见问答</a>
+      <a href="/#comments">用户评论</a>
+      <a href="/#news">相关资讯</a>
+      <a href="/#related">相关推荐</a>
+      <a href="/#ranking">热门榜单</a>
+    </nav>
+  </aside>
+
+  <!-- 中主内容 -->
+  <main class="content-main">
+
+    <!-- 1. 领域概览 -->
+    <section class="section" id="overview">
+      <div class="section-head">
+        <h2>日系校园制服写真领域概览</h2>
+        <p class="section-sub">从水手服到西装外套，白袜在镜头里承担的分量</p>
+      </div>
+      <div class="overview-box">
+        <p>
+          JK制服写真在中文互联网上早已形成固定的内容体系，围绕<strong>水手服、西装外套、百褶裙、白袜与乐福鞋</strong>的搭配组合，衍生出校园、街拍、棚拍、旅拍等多种拍摄方向。其中白袜是辨识度最高的配件之一——过膝袜、小腿袜、短袜堆堆袜，长度与材质不同，画面气质会从清纯、利落一直滑向慵懒与甜酷。
+        </p>
+        <p style="margin-top:10px;">
+          当前内容的几个活跃方向：<strong>经典藏青二本线水手服</strong>搭配黑色过膝袜的复古路线，拍摄地多选教学楼走廊与旧校舍；<strong>米白关西襟</strong>配白色小腿袜的清新路线，常见于天台与操场；<strong>格纹裙与乐福鞋</strong>的日常通学路线，白袜多选短袜或隐形袜，强调脚踝线条。此外，秋冬季节的<strong>针织开衫叠穿制服</strong>、<strong>围巾与白袜的呼应</strong>也在近两个月明显增多。不同拍摄场景对袜长有实际偏好：走廊与教室多选过膝袜以突出腿部线条，天台与户外则偏向短袜方便活动，这些细节在具体图集的拍摄笔记里都有记录。
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. 精选内容推荐 -->
+    <section class="section" id="featured">
+      <div class="section-head">
+        <h2>精选图集推荐</h2>
+        <p class="section-sub">按风格与拍摄场景挑出来的近期高热度作品</p>
+      </div>
+      <div class="card-grid">
+        <article class="pic-card">
+          <img src="https://picsum.photos/seed/jk-corridor8/400/300" width="400" height="300" loading="lazy" alt="旧教学楼走廊取景，藏青水手服配黑色过膝袜">
+          <div class="pic-card-body">
+            <h3 class="pic-card-title">放学后走廊 · 第8卷</h3>
+            <p class="pic-card-desc">旧校舍木地板与斜射夕光为背景，藏青二本线水手服搭配黑色过膝袜，摄影师用35mm定焦保持自然透视，弱化摆拍感。</p>
+            <div class="tag-row"><span class="tag">藏青二本线</span><span class="tag">过膝袜</span><span class="tag outline">走廊外拍</span></div>
+            <div class="card-meta"><span>11月7日更新</span><span class="hot">热度 9.6</span></div>
+          </div>
+        </article>
+        <article class="pic-card">
+          <img src="https://picsum.photos/seed/jk-rooftop12/400/300" width="400" height="300" loading="lazy" alt="天台逆光拍摄，米白关西襟配白色短袜">
+          <div class="pic-card-body">
+            <h3 class="pic-card-title">天台逆光 · 白袜短袜特辑</h3>
+            <p class="pic-card-desc">下午四点的天台逆光，米白关西襟水手服配白色短袜与乐福鞋，发丝与裙摆被风吹起，整体调子偏暖，适合做壁纸。</p>
+            <div class="tag-row"><span class="tag">关西襟</span><span class="tag">短袜</span><span class="tag outline">天台</span></div>
+            <div class="card-meta"><span>11月6日更新</span><span class="hot">热度 9.3</span></div>
+          </div>
+        </article>
+        <article class="pic-card">
+          <img src="https://picsum.photos/seed/jk-library5/400/300" width="400" height="300" loading="lazy" alt="图书馆书架间，格纹裙与白色小腿袜">
+          <div class="pic-card-body">
+            <h3 class="pic-card-title">书架之间 · 图书馆静景</h3>
+            <p class="pic-card-desc">书架与长桌构成的纵深，格纹百褶裙配白色小腿袜，动作以翻书、靠架为主，情绪安静，适合喜欢克制风格的读者。</p>
+            <div class="tag-row"><span class="tag">格纹裙</span><span class="tag">小腿袜</span><span class="tag outline">图书馆</span></div>
+            <div class="card-meta"><span>11月5日更新</span><span class="hot">热度 9.1</span></div>
+          </div>
+        </article>
+        <article class="pic-card">
+          <img src="https://picsum.photos/seed/jk-stairs3/400/300" width="400" height="300" loading="lazy" alt="室外楼梯坐姿，西装外套配堆堆袜">
+          <div class="pic-card-body">
+            <h3 class="pic-card-title">楼梯转角 · 西装外套日常</h3>
+            <p class="pic-card-desc">深灰西装外套内搭白衬衫，短袜堆出自然褶皱，坐在室外水泥台阶上，光线柔和，是通学日常路线里完成度较高的一组。</p>
+            <div class="tag-row"><span class="tag">西装外套</span><span class="tag">堆堆袜</span><span class="tag outline">街拍</span></div>
+            <div class="card-meta"><span>11月4日更新</span><span class="hot">热度 8.8</span></div>
+          </div>
+        </article>
+        <article class="pic-card">
+          <img src="https://picsum.photos/seed/jk-window6/400/300" width="400" height="300" loading="lazy" alt="教室窗边侧光，浅蓝水手服配白色过膝袜">
+          <div class="pic-card-body">
+            <h3 class="pic-card-title">窗边侧光 · 浅蓝水手服</h3>
+            <p class="pic-card-desc">上午第二节下课后的教室，浅蓝水手服配白色过膝袜，侧光勾勒轮廓，桌面只留一本翻开的笔记本，留白充足。</p>
+            <div class="tag-row"><span class="tag">浅蓝水手服</span><span class="tag">白色过膝袜</span><span class="tag outline">教室</span></div>
+            <div class="card-meta"><span>11月3日更新</span><span class="hot">热度 8.7</span></div>
+          </div>
+        </article>
+        <article class="pic-card">
+          <img src="https://picsum.photos/seed/jk-autumn9/400/300" width="400" height="300" loading="lazy" alt="秋日银杏树下，针织开衫叠穿制服配白袜">
+          <div class="pic-card-body">
+            <h3 class="pic-card-title">银杏树下 · 针织开衫叠穿</h3>
+            <p class="pic-card-desc">米色针织开衫叠穿白衬衫与格纹裙，白色短袜配棕色乐福鞋，银杏落叶铺地，色调温暖，秋冬过渡期参考价值高。</p>
+            <div class="tag-row"><span class="tag">针织开衫</span><span class="tag">短袜</span><span class="tag outline">秋日外景</span></div>
+            <div class="card-meta"><span>11月2日更新</span><span class="hot">热度 8.5</span></div>
+          </div>
+        </article>
+        <article class="pic-card">
+          <img src="https://picsum.photos/seed/jk-bicycle2/400/300" width="400" height="300" loading="lazy" alt="推自行车经过操场边，白色小腿袜与运动鞋">
+          <div class="pic-card-body">
+            <h3 class="pic-card-title">操场边 · 自行车与短袜</h3>
+            <p class="pic-card-desc">推着自行车走过操场边的跑道，白色小腿袜配白色帆布鞋，动作抓拍为主，画面里有风，生活感强于棚拍摆姿。</p>
+            <div class="tag-row"><span class="tag">运动风</span><span class="tag">小腿袜</span><span class="tag outline">操场</span></div>
+            <div class="card-meta"><span>11月1日更新</span><span class="hot">热度 8.3</span></div>
+          </div>
+        </article>
+        <article class="pic-card">
+          <img src="https://picsum.photos/seed/jk-studio4/400/300" width="400" height="300" loading="lazy" alt="棚拍纯色背景，白色过膝袜与百褶裙细节">
+          <div class="pic-card-body">
+            <h3 class="pic-card-title">棚拍白底 · 袜口细节特写</h3>
+            <p class="pic-card-desc">白底棚拍，重点放在过膝袜袜口与百褶裙摆的层次关系，灯光均匀，适合观察袜长与裙长的比例搭配。</p>
+            <div class="tag-row"><span class="tag">棚拍</span><span class="tag">过膝袜</span><span class="tag outline">细节特写</span></div>
+            <div class="card-meta"><span>10月30日更新</span><span class="hot">热度 8.0</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3. 最新更新 -->
+    <section class="section" id="updates">
+      <div class="section-head">
+        <h2>最新更新动态</h2>
+        <p class="section-sub">11月第一周新增与修订的图集条目</p>
+      </div>
+      <div class="update-list">
+        <div class="update-item">
+          <div class="update-date">11月7日</div>
+          <div class="update-body">
+            <p class="update-name">《放学后走廊》第8卷 <span>新增</span></p>
+            <p class="update-desc">补入12张旧校舍转角位，藏青水手服配黑色过膝袜，曝光整体压暗半档。</p>
+          </div>
+        </div>
+        <div class="update-item">
+          <div class="update-date">11月6日</div>
+          <div class="update-body">
+            <p class="update-name">天台白袜特辑 <span>新增</span></p>
+            <p class="update-desc">米白关西襟配短袜共14张，含一组逆光连拍，拍摄时间标注为下午四点十分。</p>
+          </div>
+        </div>
+        <div class="update-item">
+          <div class="update-date">11月5日</div>
+          <div class="update-body">
+            <p class="update-name">图书馆静景系列 <span>修订</span></p>
+            <p class="update-desc">替换3张过曝样片，格纹裙与白色小腿袜的细节更清楚，说明文字补充书架编号。</p>
+          </div>
+        </div>
+        <div class="update-item">
+          <div class="update-date">11月4日</div>
+          <div class="update-body">
+            <p class="update-name">西装外套日常路线 <span>新增</span></p>
+            <p class="update-desc">室外楼梯与街角两组，短袜堆堆袜穿法，附乐福鞋与袜长的搭配对照。</p>
+          </div>
+        </div>
+        <div class="update-item">
+          <div class="update-date">11月3日</div>
+          <div class="update-body">
+            <p class="update-name">窗边侧光教室组 <span>新增</span></p>
+            <p class="update-desc">浅蓝水手服配白色过膝袜，上午十点的自然光，含一张桌面笔记本特写。</p>
+          </div>
+        </div>
+        <div class="update-item">
+          <div class="update-date">11月2日</div>
+          <div class="update-body">
+            <p class="update-name">银杏树下秋冬叠穿 <span>新增</span></p>
+            <p class="update-desc">针织开衫与格纹裙组合，短袜配棕色乐福鞋，拍摄地标注为城南银杏道。</p>
+          </div>
+        </div>
+        <div class="update-item">
+          <div class="update-date">11月1日</div>
+          <div class="update-body">
+            <p class="update-name">操场自行车组 <span>新增</span></p>
+            <p class="update-desc">白色小腿袜与帆布鞋，抓拍推车、回头、停下三个动作，共9张成片。</p>
+          </div>
+        </div>
+        <div class="update-item">
+          <div class="update-date">10月30日</div>
+          <div class="update-body">
+            <p class="update-name">棚拍白底细节组 <span>新增</span></p>
+            <p class="update-desc">过膝袜袜口与裙摆层次特写8张，灯光为左右双柔光箱，色温5500K。</p>
+          </div>
+        </div>
+        <div class="update-item">
+          <div class="update-date">10月28日</div>
+          <div class="update-body">
+            <p class="update-name">水手服襟型对比表 <span>更新</span></p>
+            <p class="update-desc">补充关东襟、关西襟、名古屋襟三型的白袜搭配建议，附实拍对照图4张。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 分类入口 -->
+    <section class="section" id="categories">
+      <div class="section-head">
+        <h2>按风格与场景分类</h2>
+        <p class="section-sub">点击进入对应栏目，图集按拍摄类型归档</p>
+      </div>
+      <div class="cat-grid">
+        <a href="/#featured" class="cat-item"><span class="cat-name">藏青二本线水手服</span><span class="cat-count">36 组图集</span></a>
+        <a href="/#featured" class="cat-item"><span class="cat-name">关西襟米白款</span><span class="cat-count">24 组图集</span></a>
+        <a href="/#featured" class="cat-item"><span class="cat-name">过膝袜造型</span><span class="cat-count">42 组图集</span></a>
+        <a href="/#featured" class="cat-item"><span class="cat-name">短袜与堆堆袜</span><span class="cat-count">29 组图集</span></a>
+        <a href="/#featured" class="cat-item"><span class="cat-name">教室走廊外拍</span><span class="cat-count">18 组图集</span></a>
+        <a href="/#featured" class="cat-item"><span class="cat-name">天台与操场</span><span class="cat-count">15 组图集</span></a>
+        <a href="/#featured" class="cat-item"><span class="cat-name">西装外套日常</span><span class="cat-count">21 组图集</span></a>
+        <a href="/#featured" class="cat-item"><span class="cat-name">秋冬叠穿针织</span><span class="cat-count">13 组图集</span></a>
+      </div>
+    </section>
+
+    <!-- 5. 深度解析 -->
+    <section class="section" id="deep">
+      <div class="section-head">
+        <h2>白袜长度与拍摄场景的搭配逻辑</h2>
+        <p class="section-sub">从袜长比例、材质反光到场景光线，拆解一组图耐看与否的关键</p>
+      </div>
+      <article class="deep-article">
+        <h3>袜长决定画面重心，不是越长越好</h3>
+        <p>
+          过膝袜、小腿袜、短袜在画面里制造的视觉重心完全不同。过膝袜的袜口位置通常落在膝盖上方5到8厘米，配合百褶裙摆会形成一段明确的绝对领域，这段空白在构图中承担“呼吸位”的作用。2026年10月的一组棚拍对照实验里，同一模特同一套藏青水手服，过膝袜版本共拍摄22张，小腿袜版本18张，短袜版本15张，最终选片率分别是41%、56%和33%。小腿袜的选片率最高，原因是它把视线引向膝盖与小腿的过渡，不抢裙摆的戏，构图容错率更高。
+        </p>
+        <p>
+          短袜的问题在于露出面积大，脚踝到小腿的线条一旦被广角镜头拉变形，整张图就会显得“腿短”。棚拍白底组用35mm与50mm各拍一组对比，35mm短袜版本里7张有轻微畸变，50mm版本只有2张。这不是说短袜不好，而是短袜更适合中长焦，或者干脆拍坐姿与半身。
+        </p>
+        <div class="data-panel">
+          <b>可核对的结构：</b>一组图“耐看”的构成可以拆成三个环节——袜口与裙摆的距离（建议12—16cm留白）、光线在白色织物上的反光控制（过曝1档以上细节全丢）、以及镜头焦段与袜长的匹配（短袜配50mm以上，过膝袜35mm也可控）。
+        </div>
+        <h3>白色织物的反光是双刃剑</h3>
+        <p>
+          白袜在户外强光下极易过曝。10月30日棚拍组的灯光记录显示，左右双柔光箱输出相同功率时，白色过膝袜的袜口边缘比黑色版本亮约2.3档，如果不单独压暗，袜口织纹会糊成一片白。走廊外拍组用夕光斜射，摄影师把曝光补偿压了-0.7EV，袜口纹理才保留下来。反过来，阴天与室内散射光下，白袜的柔和反光反而成为优势，图书馆静景系列就靠这一点把白色小腿袜拍出了棉质肌理。
+        </p>
+        <p>
+          材质差异同样明显。纯棉白袜哑光，适合自然光；含氨纶的薄款过膝袜在闪光灯下会出现一条纵向高光带，棚拍时需要用旗板遮挡侧光。第8卷走廊组里有一张站立回头的照片，黑色过膝袜上的高光带被刻意保留，反而强化了腿部的立体感——这是少数把“缺陷”用成特点的例子。
+        </p>
+        <h3>场景光线与袜色的搭配清单</h3>
+        <ul>
+          <li><strong>教室侧光（上午9—11点）：</strong>浅色水手服配白色过膝袜，曝光补偿-0.3EV，保留窗框投影。</li>
+          <li><strong>走廊夕光（下午4—5点）：</strong>藏青或黑色制服配黑色过膝袜，压暗0.7档，袜口不抢光。</li>
+          <li><strong>天台逆光（下午4点后）：</strong>米白关西襟配白色短袜，用反光板补面部，袜面允许轻微过曝。</li>
+          <li><strong>图书馆散射光：</strong>格纹裙配白色小腿袜，ISO控制在400以内，保留棉质纹理。</li>
+          <li><strong>银杏外景（阴天）：</strong>针织开衫配短袜，色温偏暖，袜子不做过曝处理。</li>
+        </ul>
+        <p>
+          场景选对了，袜长与材质才有讨论空间。反过来，光线一塌糊涂，再考究的搭配也救不回一张图。
+        </p>
+      </article>
+    </section>
+
+    <!-- 6. 体验指南 -->
+    <section class="section" id="guide">
+      <div class="section-head">
+        <h2>图集浏览与收藏的路径建议</h2>
+        <p class="section-sub">先看什么、怎么判断一组图值不值得细看</p>
+      </div>
+      <div class="guide-steps">
+        <div class="guide-step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>先按场景找，再按袜长筛</h4>
+            <p>教室、走廊、天台、图书馆四个场景的光线逻辑完全不同，先锁定场景能避开大量不合口味的图。场景定了再看袜长，过膝袜偏复古，短袜偏日常，小腿袜居中。</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>看拍摄笔记里的时间与镜头</h4>
+            <p>有价值的图集通常会标注拍摄时间与焦段。下午四点的天台逆光和上午十点的教室侧光，白袜的反光表现差异很大，笔记里写了时间，说明作者意识到了光线问题。</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>横向比较同场景的不同版本</h4>
+            <p>同一条走廊，第6卷用35mm，第8卷换成50mm，透视感完全不同。把两个版本并排看，能判断自己更喜欢环境叙事还是人物特写，这比单看一组更能建立自己的偏好。</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h4>收藏前先看有没有细节特写</h4>
+            <p>只有全身照的图集，鞋袜搭配往往看不清。带袜口特写、鞋面特写的组，说明作者对搭配本身有意识，参考价值更高，也更容易照着搭。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. FAQ -->
+    <section class="section" id="faq">
+      <div class="section-head">
+        <h2>常见问答</h2>
+        <p class="section-sub">关于制服搭配与图集选择的六个高频问题</p>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>过膝袜和白色小腿袜，哪一款更适合教室场景？</summary>
+          <div class="faq-answer">教室侧光下，白色小腿袜的选片率更高，因为窗光在袜面形成的是漫反射，不会像过膝袜那样在袜口出现高光断层。10月窗边组18张成片里，小腿袜版本占11张，过膝袜版本只有7张，主要问题是过膝袜的袜口正好落在桌面边缘的阴影里，层次容易糊。</div>
+        </details>
+        <details class="faq-item">
+          <summary>藏青二本线水手服配什么颜色的袜子最稳？</summary>
+          <div class="faq-answer">黑色过膝袜是经典组合，袜长选到膝盖上方5—8厘米，和百褶裙摆的留白约12—16厘米，画面最平衡。白色过膝袜也可以，但对光线要求更高，强光下容易过曝，阴天或室内散射光更稳妥。第8卷走廊组用的是黑色，配夕光压暗0.7档，袜口细节保留完整。</div>
+        </details>
+        <details class="faq-item">
+          <summary>短袜堆堆袜怎么穿才不显腿短？</summary>
+          <div class="faq-answer">镜头焦段比袜子本身更关键。35mm拍短袜容易把脚踝拉宽，换成50mm以上，或者改拍坐姿、半身，腿部比例会正常很多。堆堆袜的褶皱不要堆得太高，落在脚踝上方3厘米左右最自然，堆到小腿中段会截断线条。</div>
+        </details>
+        <details class="faq-item">
+          <summary>图书馆和天台，哪个场景更容易出片？</summary>
+          <div class="faq-answer">天台出片率更高但依赖天气，下午四点的逆光配合白袜短袜，成功率大概六成，阴天就废了。图书馆散射光稳定，格纹裙配白色小腿袜几乎不会翻车，但画面情绪偏静，想要张力就得靠构图。两个场景的选片逻辑不同，不是同一个标准。</div>
+        </details>
+        <details class="faq-item">
+          <summary>秋冬针织开衫叠穿制服，袜子怎么选？</summary>
+          <div class="faq-answer">棕色乐福鞋配白色短袜是秋冬过渡期最稳的组合，开衫的米色和袜子的白形成低对比过渡，不会头重脚轻。过膝袜在这个组合里反而显得下半身太满，因为开衫已经增加了上半身的体积感。11月2日银杏组用的就是短袜，9张成片里6张是全身，比例没有失衡。</div>
+        </details>
+        <details class="faq-item">
+          <summary>一组图里只有全身照没有特写，问题出在哪？</summary>
+          <div class="faq-answer">大概率是拍摄时没有专门的细节意识。袜口、鞋面、裙摆褶皱这些信息量最大的位置，需要单独用中焦或微距补拍。纯全身照的组，鞋袜搭配往往只能看个大概，参考价值打折。反过来，带特写的组通常拍摄者本身对搭配有研究，图集的可用性也更高。</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 8. 用户评论 -->
+    <section class="section" id="comments">
+      <div class="section-head">
+        <h2>用户评论</h2>
+        <p class="section-sub">近期图集下的真实讨论，有好评也有挑刺</p>
+      </div>
+      <div class="comment-list">
+        <div class="comment-item">
+          <div class="avatar">小</div>
+          <div class="comment-body">
+            <p class="comment-name">小林同学</p>
+            <p class="comment-text">第8卷走廊那张站立回头的，黑色过膝袜上的高光带居然成了加分项，第一次见有人把过曝边缘处理成这样的。</p>
+          </div>
+        </div>
+        <div class="comment-item">
+          <div class="avatar">阿</div>
+          <div class="comment-body">
+            <p class="comment-name">阿柚不吃香菜</p>
+            <p class="comment-text">天台短袜那组逆光确实好看，但脸是不是补光补得有点平了？感觉少了点下午四点的影子味道。</p>
+          </div>
+        </div>
+        <div class="comment-item">
+          <div class="avatar">白</div>
+          <div class="comment-body">
+            <p class="comment-name">白袜收藏家</p>
+            <p class="comment-text">图书馆系列改版之后清楚多了，之前那三张过曝的确实没法看。</p>
+          </div>
+        </div>
+        <div class="comment-item">
+          <div class="avatar">猫</div>
+          <div class="comment-body">
+            <p class="comment-name">猫町散步</p>
+            <p class="comment-text">西装外套配堆堆袜这个组合我试过，袜子的褶皱很难堆得自然，图里那种随意的感觉其实拍了很多张才挑出来一张吧。</p>
+          </div>
+        </div>
+        <div class="comment-item">
+          <div class="avatar">冬</div>
+          <div class="comment-body">
+            <p class="comment-name">冬眠的橘子</p>
+            <p class="comment-text">银杏树下那组的棕色乐福鞋是哪个牌子的？想照着搭一套，开衫的米色也很正。</p>
+          </div>
+        </div>
+        <div class="comment-item">
+          <div class="avatar">镜</div>
+          <div class="comment-body">
+            <p class="comment-name">镜面反射</p>
+            <p class="comment-text">50mm拍短袜确实比35mm稳，之前自己拿35拍怎么拍怎么怪，还以为是袜子的问题。</p>
+          </div>
+        </div>
+        <div class="comment-item">
+          <div class="avatar">半</div>
+          <div class="comment-body">
+            <p class="comment-name">半糖去冰</p>
+            <p class="comment-text">最近几期全是外景，想看棚拍白底了，纯色背景看细节最舒服。</p>
+          </div>
+        </div>
+        <div class="comment-item">
+          <div class="avatar">夜</div>
+          <div class="comment-body">
+            <p class="comment-name">夜航船</p>
+            <p class="comment-text">关西襟米白那套配短袜，颜色是不是太接近了，远看裤子袜子糊成一团。</p>
+          </div>
+        </div>
+        <div class="comment-item">
+          <div class="avatar">小</div>
+          <div class="comment-body">
+            <p class="comment-name">小满未满</p>
+            <p class="comment-text">袜口特写8张里最喜欢第二张，织纹清楚，灯光打得很克制。这种细节图多来点。</p>
+          </div>
+        </div>
+        <div class="comment-item">
+          <div class="avatar">风</div>
+          <div class="comment-body">
+            <p class="comment-name">风铃草</p>
+            <p class="comment-text">过膝袜选片率最低那个数据有点意外，不过想想也是，袜口一糊整张就废了。</p>
+          </div>
+        </div>
+        <div class="comment-item">
+          <div class="avatar">路</div>
+          <div class="comment-body">
+            <p class="comment-name">路过的灰猫</p>
+            <p class="comment-text">不太懂制服搭配，就是觉得走廊那组光线很舒服，存了几张当壁纸。</p>
+          </div>
+        </div>
+        <div class="comment-item">
+          <div class="avatar">清</div>
+          <div class="comment-body">
+            <p class="comment-name">清水混凝土</p>
+            <p class="comment-text">更新频率可以再快一点吗，一周两组实在不够看。</p>
+          </div>
+        </div>
+        <div class="comment-item">
+          <div class="avatar">三</div>
+          <div class="comment-body">
+            <p class="comment-name">三号选手</p>
+            <p class="comment-text">操场自行车那组生活感很强，比棚拍有意思，虽然有点糊。</p>
+          </div>
+        </div>
+        <div class="comment-item">
+          <div class="avatar">诗</div>
+          <div class="comment-body">
+            <p class="comment-name">诗织的猫</p>
+            <p class="comment-text">每次看完都想去买新袜子，钱包遭不住。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. 相关资讯 -->
+    <section class="section" id="news">
+      <div class="section-head">
+        <h2>相关资讯</h2>
+        <p class="section-sub">近一个月制服写真领域的动态与拍摄消息</p>
+      </div>
+      <div class="news-list">
+        <article class="news-item">
+          <h3 class="news-title">秋季制服外拍活动在城南银杏道举行，白袜短袜成主流搭配</h3>
+          <p class="news-meta">2026年11月2日</p>
+          <p class="news-desc">11月2日下午共17位摄影爱好者参与，现场统计短袜与堆堆袜出现率约六成，较10月中旬同类活动上升约15个百分点，组织方表示下期将增加棚拍环节。</p>
+        </article>
+        <article class="news-item">
+          <h3 class="news-title">《放学后走廊》系列作者公布第8卷拍摄参数，50mm焦段占比提升</h3>
+          <p class="news-meta">2026年11月5日</p>
+          <p class="news-desc">作者在拍摄笔记中列出第8卷共有41张成片，其中50mm焦段30张，35mm焦段11张，较第6卷的50mm占比提高了22个百分点，称“想让人物从环境里跳出来”。</p>
+        </article>
+        <article class="news-item">
+          <h3 class="news-title">关西襟水手服新色“灰蓝”进入10月样衣拍摄，白袜搭配方案待定</h3>
+          <p class="news-meta">2026年10月29日</p>
+          <p class="news-desc">样衣拍摄于10月28日在城南棚拍完成，共试搭白色过膝袜与短袜各3组，负责人表示灰蓝色调偏冷，最终袜色倾向米白而非纯白，预计11月中旬公布定稿。</p>
+        </article>
+        <article class="news-item">
+          <h3 class="news-title">图书馆静景系列完成第二轮修订，替换3张过曝样片</h3>
+          <p class="news-meta">2026年11月5日</p>
+          <p class="news-desc">修订集中在书架编号B2至B4区域的6张照片，原片中袜面高光溢出约1.2档，新片曝光补偿下调0.5EV，白色小腿袜的棉质织纹恢复可见。</p>
+        </article>
+        <article class="news-item">
+          <h3 class="news-title">秋冬叠穿专题收录13组图集，针织开衫配短袜占九组</h3>
+          <p class="news-meta">2026年10月30日</p>
+          <p class="news-desc">专题统计显示，13组图集里9组选择短袜，3组选择小腿袜，仅1组选用过膝袜；配色上米色开衫与白色短袜的组合重复出现6次，成为本季最高频搭配。</p>
+        </article>
+        <article class="news-item">
+          <h3 class="news-title">棚拍白底细节组公布灯光配置，双柔光箱色温5500K</h3>
+          <p class="news-meta">2026年10月30日</p>
+          <p class="news-desc">拍摄方公布的参数显示主灯与辅灯输出比为1:0.7，白色过膝袜袜口较黑色版本亮约2.3档，为保留织纹额外使用旗板遮挡侧向溢光。</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 10. 相关推荐 -->
+    <section class="section" id="related">
+      <div class="section-head">
+        <h2>相关推荐</h2>
+        <p class="section-sub">与当前图集风格接近的条目与方向</p>
+      </div>
+      <div class="tag-index">
+        <a href="/#featured">藏青二本线搭配黑色过膝袜</a>
+        <a href="/#featured">关西襟水手服与白色短袜</a>
+        <a href="/#featured">格纹百褶裙配乐福鞋</a>
+        <a href="/#featured">教室窗边侧光拍摄</a>
+        <a href="/#featured">天台逆光白袜特辑</a>
+        <a href="/#featured">针织开衫秋冬叠穿</a>
+        <a href="/#featured">图书馆静景系列</a>
+        <a href="/#featured">棚拍白底袜口特写</a>
+      </div>
+    </section>
+
+    <!-- 11. 补充板块：热门榜单 + 投稿 -->
+    <section class="section" id="ranking">
+      <div class="section-head">
+        <h2>近30天热门图集榜单</h2>
+        <p class="section-sub">按浏览与收藏综合排序，截至11月8日</p>
+      </div>
+      <div class="rank-list">
+        <div class="rank-item">
+          <span class="rank-num top">1</span>
+          <span class="rank-name">放学后走廊 · 第8卷<small>藏青二本线 × 黑色过膝袜</small></span>
+          <span class="rank-score">9.6</span>
+        </div>
+        <div class="rank-item">
+          <span class="rank-num top">2</span>
+          <span class="rank-name">天台逆光 · 白袜短袜特辑<small>关西襟 × 白色短袜</small></span>
+          <span class="rank-score">9.3</span>
+        </div>
+        <div class="rank-item">
+          <span class="rank-num top">3</span>
+          <span class="rank-name">书架之间 · 图书馆静景<small>格纹裙 × 白色小腿袜</small></span>
+          <span class="rank-score">9.1</span>
+        </div>
+        <div class="rank-item">
+          <span class="rank-num">4</span>
+          <span class="rank-name">楼梯转角 · 西装外套日常<small>深灰外套 × 堆堆短袜</small></span>
+          <span class="rank-score">8.9</span>
+        </div>
+        <div class="rank-item">
+          <span class="rank-num">5</span>
+          <span class="rank-name">窗边侧光 · 浅蓝水手服<small>浅蓝水手服 × 白色过膝袜</small></span>
+          <span class="rank-score">8.7</span>
+        </div>
+        <div class="rank-item">
+          <span class="rank-num">6</span>
+          <span class="rank-name">银杏树下 · 针织开衫叠穿<small>米色开衫 × 白色短袜</small></span>
+          <span class="rank-score">8.5</span>
+        </div>
+        <div class="rank-item">
+          <span class="rank-num">7</span>
+          <span class="rank-name">棚拍白底 · 袜口细节特写<small>过膝袜 × 百褶裙摆</small></span>
+          <span class="rank-score">8.2</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 投稿互动 -->
+    <section class="section" id="upload">
+      <div class="upload-box">
+        <div>
+          <h3>分享你的制服外拍作品</h3>
+          <p>接受单组8张以上的图集投稿，需注明拍摄时间、焦段与搭配说明。通过审核后进入对应分类栏目。</p>
+        </div>
+        <a href="/#upload" class="btn-primary">提交作品</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 右侧辅助栏 -->
+  <aside class="side-panel" aria-label="辅助信息">
+    <div class="side-box">
+      <h3>本周热度 Top5</h3>
+      <ul class="side-hot">
+        <li><span class="n">01</span>放学后走廊 · 第8卷</li>
+        <li><span class="n">02</span>天台逆光 · 短袜特辑</li>
+        <li><span class="n">03</span>书架之间 · 图书馆静景</li>
+        <li><span class="n">04</span>楼梯转角 · 西装外套</li>
+        <li><span class="n">05</span>窗边侧光 · 浅蓝水手服</li>
+      </ul>
+    </div>
+    <div class="side-box">
+      <h3>热门标签</h3>
+      <div class="side-tags">
+        <a href="/#featured">过膝袜</a>
+        <a href="/#featured">短袜</a>
+        <a href="/#featured">藏青二本线</a>
+        <a href="/#featured">关西襟</a>
+        <a href="/#featured">格纹裙</a>
+        <a href="/#featured">乐福鞋</a>
+        <a href="/#featured">走廊外拍</a>
+        <a href="/#featured">天台逆光</a>
+        <a href="/#featured">针织开衫</a>
+        <a href="/#featured">堆堆袜</a>
+      </div>
+    </div>
+    <div class="side-box">
+      <h3>更新节奏</h3>
+      <p class="side-note">
+        图集按拍摄批次更新，平均每周2—3组。单组含8—15张成片，附拍摄时间、焦段与搭配说明。修订记录保留在原条目下方，可对照新旧版本。
+      </p>
+    </div>
+  </aside>
+
+</div>
+
+<!-- 页尾 -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo-text">JK白袜少女美图</span>
+        <p>收录2025年9月至2026年11月期间的制服写真图集，涵盖水手服、西装外套、百褶裙与各类白袜搭配，按场景与风格归档，每周更新2—3组外拍或棚拍作品。</p>
+      </div>
+      <div class="footer-col">
+        <h4>内容频道</h4>
+        <a href="/#featured">精选图集</a>
+        <a href="/#updates">最新更新</a>
+        <a href="/#categories">分类入口</a>
+        <a href="/#deep">深度解析</a>
+      </div>
+      <div class="footer-col">
+        <h4>互动与帮助</h4>
+        <a href="/#guide">体验指南</a>
+        <a href="/#faq">常见问答</a>
+        <a href="/#comments">用户评论</a>
+        <a href="/#upload">作品投稿</a>
+      </div>
+      <div class="footer-col">
+        <h4>热门条目</h4>
+        <a href="/#featured">放学后走廊第8卷</a>
+        <a href="/#featured">天台短袜特辑</a>
+        <a href="/#featured">图书馆静景系列</a>
+        <a href="/#ranking">热门榜单</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 JK白袜少女美图 · 内容聚合示例页面</span>
+      <span>页面内图集与评论为示例数据，更新日期截至2026年11月8日</span>
+      <span>最近更新：11月7日 《放学后走廊》第8卷</span>
+    </div>
+  </div>
+</footer>
+
+<button class="back-top" id="backTop" aria-label="回到顶部">↑</button>
+
+<!-- 结构化数据 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "JK白袜少女美图",
+  "description": "日系校园制服写真与白袜搭配图集聚合，收录教室、走廊、天台等场景拍摄作品。",
+  "inLanguage": "zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "过膝袜和白色小腿袜，哪一款更适合教室场景？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "教室侧光下白色小腿袜的选片率更高，窗光在袜面形成漫反射，不会像过膝袜那样在袜口出现高光断层。10月窗边组18张成片里，小腿袜版本占11张。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "藏青二本线水手服配什么颜色的袜子最稳？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "黑色过膝袜是经典组合，袜长到膝盖上方5—8厘米，与百褶裙摆留白12—16厘米最平衡。白色过膝袜在强光下容易过曝，阴天或室内散射光更稳妥。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "短袜堆堆袜怎么穿才不显腿短？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "镜头焦段比袜子本身更关键。35mm拍短袜容易拉宽脚踝，换成50mm以上或改拍坐姿、半身，比例会正常很多。堆堆袜褶皱落在脚踝上方3厘米左右最自然。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "图书馆和天台，哪个场景更容易出片？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "天台出片率更高但依赖天气，下午四点逆光配合短袜成功率约六成，阴天就废了。图书馆散射光稳定，格纹裙配白色小腿袜几乎不会翻车，但画面情绪偏静。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "秋冬针织开衫叠穿制服，袜子怎么选？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "棕色乐福鞋配白色短袜最稳，开衫米色与袜白形成低对比过渡。过膝袜在这个组合里会显得下半身太满，11月2日银杏组9张成片里6张是短袜全身照。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "一组图里只有全身照没有特写，问题出在哪？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "大概率是拍摄时缺少细节意识。袜口、鞋面、裙摆褶皱需要单独用中焦或微距补拍，纯全身照的组鞋袜搭配只能看个大概，参考价值打折。"
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+(function(){
+  /* 移动端菜单 */
+  var menuBtn = document.getElementById('menuBtn');
+  var mobileNav = document.getElementById('mobileNav');
+  var closeMobile = document.getElementById('closeMobile');
+  var mobileLinks = mobileNav.querySelectorAll('a');
+
+  function openMenu(){
+    mobileNav.classList.add('open');
+    menuBtn.setAttribute('aria-expanded','true');
+    document.body.style.overflow = 'hidden';
+    closeMobile.focus();
+  }
+  function closeMenu(){
+    mobileNav.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
+    menuBtn.focus();
+  }
+  menuBtn.addEventListener('click', openMenu);
+  closeMobile.addEventListener('click', closeMenu);
+  mobileNav.addEventListener('click', function(e){
+    if(e.target === mobileNav) closeMenu();
+  });
+  mobileLinks.forEach(function(a){
+    a.addEventListener('click', function(){ closeMenu(); });
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && mobileNav.classList.contains('open')) closeMenu();
+  });
+
+  /* 搜索 */
+  var searchInput = document.getElementById('searchInput');
+  var searchTip = document.getElementById('searchTip');
+  var searchable = [];
+  document.querySelectorAll('.pic-card-title, .update-name, .cat-name, .news-title, .rank-name, .tag-index a, .side-tags a').forEach(function(el){
+    searchable.push({el: el, text: el.textContent.trim()});
+  });
+
+  searchInput.addEventListener('input', function(){
+    var q = this.value.trim();
+    if(!q){
+      searchTip.classList.remove('show');
+      document.querySelectorAll('.pic-card, .update-item, .news-item, .cat-item, .rank-item').forEach(function(el){
+        el.style.display = '';
+      });
+      return;
+    }
+    var results = searchable.filter(function(item){
+      return item.text.indexOf(q) > -1;
+    });
+    if(results.length === 0){
+      searchTip.textContent = '没有找到包含“' + q + '”的条目';
+      searchTip.classList.add('show');
+    } else {
+      searchTip.textContent = '找到 ' + results.length + ' 条相关条目';
+      searchTip.classList.add('show');
+      var first = results[0].el;
+      var target = first.closest('.section') || first.closest('.pic-card') || first;
+      if(target){
+        target.scrollIntoView({behavior:'smooth', block:'center'});
+      }
+    }
+  });
+  searchInput.addEventListener('blur', function(){
+    setTimeout(function(){ searchTip.classList.remove('show'); }, 1800);
+  });
+
+  /* 回到顶部 */
+  var backTop = document.getElementById('backTop');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > window.innerHeight){
+      backTop.classList.add('show');
+    } else {
+      backTop.classList.remove('show');
+    }
+  });
+  backTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  /* 频道高亮 */
+  var sections = document.querySelectorAll('.section, #hero');
+  var navLinks = document.querySelectorAll('.main-nav a');
+  window.addEventListener('scroll', function(){
+    var pos = window.scrollY + 140;
+    var current = '';
+    sections.forEach(function(sec){
+      if(sec.offsetTop <= pos) current = sec.id;
+    });
+    navLinks.forEach(function(a){
+      a.classList.remove('active');
+      if(a.getAttribute('href') === '/#' + current) a.classList.add('active');
+    });
+  });
+})();
+</script>
+
+</body>
+              </html>
