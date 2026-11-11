@@ -1,0 +1,1642 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>踩踏天堂caita - 同好交流与内容聚合</title>
+  <meta name="description" content="踩踏天堂caita 聚焦踩踏文化、动画与同人作品，汇集最新投稿、踩踏天堂caita 精选条目与深度解析，适合爱好者与创作者浏览。">
+  <meta name="keywords" content="踩踏天堂caita">
+  <style>
+    /* ---------- 全局变量与重置 ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    :root {
+      --bg: #0f1117;
+      --panel: #1a1d26;
+      --panel-raised: #222630;
+      --border: #2f3542;
+      --text-primary: #f0f3fa;
+      --text-secondary: #b0b8cc;
+      --text-muted: #7a8499;
+      --accent: #b6ff3c;
+      --accent-soft: #2a3a1a;
+      --accent-dark: #8bc42e;
+      --accent-glow: #d4ff8a;
+      --radius-card: 16px;
+      --radius-btn: 30px;
+      --radius-tag: 8px;
+      --shadow-default: 0 6px 20px rgba(0, 0, 0, 0.5);
+      --shadow-hover: 0 12px 28px rgba(0, 0, 0, 0.7);
+      --font-main: 'Inter', 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+      --transition: 0.25s ease;
+      --announce-h: 44px;
+      --header-h: 68px;
+    }
+    html {
+      scroll-padding-top: calc(var(--announce-h) + var(--header-h) + 12px);
+      scroll-behavior: smooth;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a {
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+    a:hover {
+      color: var(--accent);
+    }
+    ul, ol {
+      list-style: none;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+    /* ---------- 吸顶公告条 + 页头 ---------- */
+    .sticky-top {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .announce-bar {
+      background: #1f2a0e;
+      border-bottom: 1px solid var(--accent-dark);
+      height: var(--announce-h);
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      font-size: 0.85rem;
+      color: var(--accent-glow);
+      gap: 24px;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: thin;
+    }
+    .announce-bar .announce-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .announce-bar .date {
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+    }
+    .announce-bar .badge {
+      background: var(--accent);
+      color: #111;
+      font-weight: 700;
+      padding: 0 8px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      line-height: 20px;
+      height: 20px;
+    }
+    .header {
+      background: rgba(15, 17, 23, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      height: var(--header-h);
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      gap: 24px;
+    }
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .logo-svg {
+      width: 36px;
+      height: 36px;
+      display: block;
+    }
+    .brand-text {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+    .nav {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .nav a {
+      padding: 6px 12px;
+      border-radius: var(--radius-btn);
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      transition: background var(--transition), color var(--transition);
+    }
+    .nav a:hover, .nav a:focus-visible {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+    .search-box {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--panel);
+      border-radius: var(--radius-btn);
+      padding: 4px 8px 4px 16px;
+      border: 1px solid var(--border);
+      transition: border var(--transition);
+    }
+    .search-box:focus-within {
+      border-color: var(--accent);
+    }
+    .search-box input {
+      background: transparent;
+      border: none;
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      outline: none;
+      width: 160px;
+    }
+    .search-box input::placeholder {
+      color: var(--text-muted);
+    }
+    .search-box button {
+      background: var(--accent);
+      color: #111;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      transition: background var(--transition);
+    }
+    .search-box button:hover {
+      background: var(--accent-glow);
+    }
+    .hamburger {
+      display: none;
+      background: var(--panel);
+      border-radius: 8px;
+      padding: 8px 10px;
+      color: var(--text-primary);
+      font-size: 1.5rem;
+      border: 1px solid var(--border);
+    }
+    /* ---------- 首屏 ---------- */
+    .hero {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 48px 24px 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .hero-content h1 .accent {
+      color: var(--accent);
+    }
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin-bottom: 28px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #111;
+      font-weight: 700;
+      padding: 12px 32px;
+      border-radius: var(--radius-btn);
+      transition: transform var(--transition), box-shadow var(--transition);
+      display: inline-block;
+      box-shadow: 0 4px 14px rgba(182, 255, 60, 0.25);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(182, 255, 60, 0.4);
+      color: #111;
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--accent);
+      border: 1.5px solid var(--accent);
+      font-weight: 600;
+      padding: 12px 32px;
+      border-radius: var(--radius-btn);
+      transition: background var(--transition), transform var(--transition);
+      display: inline-block;
+    }
+    .btn-outline:hover {
+      background: var(--accent-soft);
+      transform: translateY(-2px);
+    }
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 260px;
+    }
+    .hero-svg {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      filter: drop-shadow(0 0 30px rgba(182, 255, 60, 0.15));
+    }
+    /* ---------- 主内容区 三栏 ---------- */
+    .container-main {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 24px 24px 64px;
+      display: grid;
+      grid-template-columns: 180px 1fr 260px;
+      gap: 28px;
+      align-items: start;
+    }
+    /* 左侧频道索引 */
+    .channel-sidebar {
+      position: sticky;
+      top: calc(var(--announce-h) + var(--header-h) + 16px);
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      padding: 20px 12px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-default);
+    }
+    .channel-sidebar h2 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+      padding: 0 8px 12px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 12px;
+    }
+    .channel-list li a {
+      display: block;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      transition: background var(--transition), color var(--transition);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .channel-list li a:hover,
+    .channel-list li a:focus-visible,
+    .channel-list li a.active {
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 600;
+    }
+    /* 中主内容区 */
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 24px;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-title::before {
+      content: '';
+      display: block;
+      width: 5px;
+      height: 28px;
+      background: var(--accent);
+      border-radius: 4px;
+    }
+    /* 卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--accent-dark);
+    }
+    .card-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      background: #1e212a;
+    }
+    .card-body {
+      padding: 14px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.4;
+      color: #fff;
+    }
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tag {
+      background: var(--accent-soft);
+      color: var(--accent-glow);
+      font-size: 0.7rem;
+      padding: 3px 8px;
+      border-radius: var(--radius-tag);
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+    .card-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      flex: 1;
+    }
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      padding-top: 8px;
+      margin-top: 4px;
+    }
+    .meta-hot {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    /* 紧凑列表 */
+    .compact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .compact-item {
+      background: var(--panel);
+      border-radius: 12px;
+      padding: 14px 18px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .compact-item:hover {
+      background: var(--panel-raised);
+      border-color: var(--accent-dark);
+    }
+    .compact-index {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      min-width: 28px;
+      text-align: center;
+    }
+    .compact-content {
+      flex: 1;
+    }
+    .compact-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 2px;
+    }
+    .compact-summary {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .compact-date {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    /* 深度解析 */
+    .deep-dive {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      padding: 28px 30px;
+      border: 1px solid var(--border);
+    }
+    .deep-dive h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 24px 0 10px;
+      color: var(--accent-glow);
+    }
+    .deep-dive h3:first-of-type {
+      margin-top: 0;
+    }
+    .deep-dive p {
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+    .deep-dive ul {
+      list-style: disc;
+      padding-left: 22px;
+      margin-bottom: 16px;
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+    }
+    .deep-dive li {
+      margin-bottom: 6px;
+    }
+    .deep-dive strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    /* FAQ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    details {
+      background: var(--panel);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 0 18px;
+      transition: background var(--transition);
+    }
+    details[open] {
+      background: var(--panel-raised);
+      border-color: var(--accent-dark);
+    }
+    summary {
+      cursor: pointer;
+      padding: 16px 0;
+      font-weight: 600;
+      font-size: 0.95rem;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    summary::-webkit-details-marker {
+      display: none;
+    }
+    summary::after {
+      content: '+';
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--accent);
+      transition: transform var(--transition);
+    }
+    details[open] summary::after {
+      content: '−';
+      transform: rotate(180deg);
+    }
+    .faq-answer {
+      padding: 0 0 18px;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+    /* 评论 */
+    .comment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .comment-card {
+      background: var(--panel);
+      border-radius: 14px;
+      padding: 16px 18px;
+      border: 1px solid var(--border);
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: border-color var(--transition);
+    }
+    .comment-card:hover {
+      border-color: var(--accent-dark);
+    }
+    .comment-user {
+      font-weight: 700;
+      color: var(--accent-glow);
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .comment-user .avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: var(--accent);
+    }
+    /* 相关资讯 */
+    .news-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .news-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 18px;
+      align-items: center;
+      background: var(--panel);
+      border-radius: 14px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      transition: border-color var(--transition);
+    }
+    .news-item:hover {
+      border-color: var(--accent-dark);
+    }
+    .news-thumb {
+      width: 120px;
+      height: 90px;
+      border-radius: 10px;
+      object-fit: cover;
+      background: #1e212a;
+    }
+    .news-content {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .news-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #fff;
+    }
+    .news-date {
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+    .news-summary {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+    /* 分类入口 */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .category-pill {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      padding: 12px 16px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      transition: all var(--transition);
+      display: block;
+    }
+    .category-pill:hover,
+    .category-pill:focus-visible {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    /* 相关推荐标签 */
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .tag-cloud a {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      transition: all var(--transition);
+    }
+    .tag-cloud a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+    /* 右侧辅助栏 */
+    .right-sidebar {
+      position: sticky;
+      top: calc(var(--announce-h) + var(--header-h) + 16px);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .side-card {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      padding: 20px 18px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-default);
+    }
+    .side-card h2 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hot-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.88rem;
+    }
+    .hot-list li:last-child {
+      border-bottom: none;
+    }
+    .hot-rank {
+      font-weight: 800;
+      color: var(--accent);
+      font-size: 0.8rem;
+      min-width: 20px;
+    }
+    .hot-title {
+      color: var(--text-secondary);
+      transition: color var(--transition);
+    }
+    .hot-title:hover {
+      color: var(--accent);
+    }
+    .update-feed li {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .update-feed li:last-child {
+      border-bottom: none;
+    }
+    .update-feed .update-name {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+    .update-feed .update-time {
+      color: var(--accent);
+      font-size: 0.7rem;
+      margin-left: 6px;
+    }
+    /* 页尾 */
+    .footer {
+      background: var(--panel);
+      border-top: 1px solid var(--border);
+      padding: 48px 24px 32px;
+      margin-top: 32px;
+    }
+    .footer-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+    .footer-brand h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      line-height: 1.7;
+      max-width: 300px;
+    }
+    .footer-col h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: #fff;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      padding: 4px 0;
+      transition: color var(--transition);
+    }
+    .footer-col a:hover {
+      color: var(--accent);
+    }
+    .footer-bottom {
+      max-width: 1440px;
+      margin: 32px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    /* 回到顶部 */
+    .back-top {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      background: var(--accent);
+      color: #111;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      font-weight: 700;
+      box-shadow: var(--shadow-default);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity var(--transition), visibility var(--transition), transform var(--transition);
+      z-index: 90;
+    }
+    .back-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    .back-top:hover {
+      transform: translateY(-3px);
+    }
+    /* 移动端抽屉遮罩 */
+    .overlay {
+      display: none;
+    }
+    /* 交互辅助 */
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+    }
+    /* ---------- 响应式 ---------- */
+    @media (max-width: 1200px) {
+      .container-main {
+        grid-template-columns: 160px 1fr 240px;
+        gap: 20px;
+      }
+      .hero-content h1 {
+        font-size: 2.6rem;
+      }
+      .footer-inner {
+        grid-template-columns: 1.5fr 1fr 1fr;
+      }
+    }
+    @media (max-width: 1024px) {
+      .container-main {
+        grid-template-columns: 1fr 1fr;
+      }
+      .channel-sidebar {
+        position: static;
+        display: none;
+      }
+      .right-sidebar {
+        position: static;
+        grid-column: span 2;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 24px;
+      }
+      .hero-desc {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-actions {
+        justify-content: center;
+      }
+      .nav {
+        display: none;
+      }
+      .hamburger {
+        display: block;
+      }
+      .search-box {
+        margin-left: auto;
+      }
+      .search-box input {
+        width: 100px;
+      }
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+      /* 移动端抽屉菜单 */
+      .nav.mobile-open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: calc(var(--announce-h) + var(--header-h));
+        left: 0;
+        width: 260px;
+        height: calc(100vh - var(--announce-h) - var(--header-h));
+        background: var(--panel);
+        padding: 20px;
+        border-right: 1px solid var(--border);
+        z-index: 200;
+        gap: 8px;
+        overflow-y: auto;
+      }
+      .nav.mobile-open a {
+        padding: 12px 16px;
+        border-radius: 8px;
+        font-size: 1rem;
+      }
+      .overlay.active {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 150;
+        top: calc(var(--announce-h) + var(--header-h));
+      }
+    }
+    @media (max-width: 740px) {
+      .container-main {
+        grid-template-columns: 1fr;
+      }
+      .right-sidebar {
+        grid-column: span 1;
+        grid-template-columns: 1fr;
+      }
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .news-item {
+        grid-template-columns: 1fr;
+      }
+      .news-thumb {
+        width: 100%;
+        height: 160px;
+      }
+      .comment-grid {
+        grid-template-columns: 1fr;
+      }
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .announce-bar {
+        font-size: 0.75rem;
+        gap: 12px;
+        padding: 0 12px;
+      }
+      .header {
+        padding: 0 12px;
+        gap: 12px;
+      }
+      .search-box input {
+        width: 80px;
+      }
+      .brand-text {
+        font-size: 1.1rem;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+  <!-- 吸顶公告条 + 页头 -->
+  <div class="sticky-top">
+    <div class="announce-bar" id="announce-bar">
+      <span class="announce-item"><span class="badge">更新</span><span class="date">2026-11-08</span>「地牢刑具·铁处女」新增 3 段踩踏实录</span>
+      <span class="announce-item"><span class="badge">投稿</span><span class="date">2026-11-07</span>「靴底纹路·Vibram 对比」通过审核</span>
+      <span class="announce-item"><span class="badge">热议</span>踩踏天堂caita 本周投票：最带感的鞋底材质</span>
+    </div>
+    <header class="header">
+      <div class="logo-area">
+        <!-- 原创 SVG Logo：靴印 + 星芒 -->
+        <svg class="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="20" stroke="#b6ff3c" stroke-width="2.5" stroke-dasharray="4 4"/>
+          <path d="M16 30C16 26 19 22 24 22C29 22 32 26 32 30" stroke="#b6ff3c" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="24" cy="16" r="3" fill="#b6ff3c"/>
+          <path d="M20 34L24 28L28 34" stroke="#b6ff3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="brand-text">踩踏天堂caita</span>
+      </div>
+      <nav class="nav" id="main-nav" aria-label="主题导航">
+        <a href="#overview">领域概览</a>
+        <a href="#featured">精选推荐</a>
+        <a href="#latest">最新更新</a>
+        <a href="#categories">分类入口</a>
+        <a href="#deep-dive">深度解析</a>
+        <a href="#guide">体验指南</a>
+        <a href="#faq">常见问答</a>
+        <a href="#comments">用户评论</a>
+        <a href="#news">相关资讯</a>
+        <a href="#recommend">相关推荐</a>
+        <a href="#submit">投稿互动</a>
+      </nav>
+      <div class="search-box">
+        <label for="site-search" class="visually-hidden">搜索条目</label>
+        <input type="search" id="site-search" placeholder="搜索条目…" aria-label="搜索站内条目">
+        <button type="button" id="search-btn" aria-label="执行搜索">🔍</button>
+      </div>
+      <button class="hamburger" id="hamburger-btn" aria-label="打开菜单" aria-expanded="false">☰</button>
+    </header>
+  </div>
+
+  <!-- 遮罩 -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- 首屏 -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-content">
+      <h1 id="hero-title">踩踏天堂caita</h1>
+      <p class="hero-desc">汇集踩踏文化相关的动画、同人作品、实拍记录与鞋底评测，收录 2026 年 10 月以来新增的 47 条投稿，涵盖靴底纹路对比、踩踏场景分镜、刑具道具考据三个方向。</p>
+      <div class="hero-actions">
+        <a href="#latest" class="btn-primary">浏览最新更新</a>
+        <a href="#submit" class="btn-outline">投稿作品</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <!-- 原创 SVG 首屏图形：靴印层叠 -->
+      <svg class="hero-svg" viewBox="0 0 500 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="层叠靴印图形">
+        <rect width="500" height="300" rx="24" fill="#1a1d26"/>
+        <path d="M120 100 Q160 40 220 80 Q260 110 240 170 Q220 220 170 210 Q120 200 120 100Z" stroke="#b6ff3c" stroke-width="2" fill="none" stroke-dasharray="6 4"/>
+        <path d="M190 140 Q230 80 290 120 Q330 150 310 210 Q290 260 240 250 Q190 240 190 140Z" stroke="#6a9e1e" stroke-width="2" fill="none"/>
+        <path d="M260 180 Q300 120 360 160 Q400 190 380 250 Q360 300 310 290 Q260 280 260 180Z" stroke="#b6ff3c" stroke-width="2" fill="none" opacity="0.6"/>
+        <circle cx="360" cy="70" r="4" fill="#b6ff3c"/>
+        <circle cx="400" cy="100" r="2" fill="#b6ff3c" opacity="0.7"/>
+        <circle cx="90" cy="220" r="3" fill="#b6ff3c" opacity="0.5"/>
+        <text x="380" y="280" fill="#b6ff3c" font-size="10" font-family="monospace" opacity="0.5">CAITA / 2026</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 主内容区：三栏 -->
+  <div class="container-main">
+    <!-- 左侧频道索引 -->
+    <aside class="channel-sidebar" aria-label="频道索引">
+      <h2>频道</h2>
+      <ul class="channel-list">
+        <li><a href="#overview" class="active">领域概览</a></li>
+        <li><a href="#featured">精选推荐</a></li>
+        <li><a href="#latest">最新更新</a></li>
+        <li><a href="#categories">分类入口</a></li>
+        <li><a href="#deep-dive">深度解析</a></li>
+        <li><a href="#guide">体验指南</a></li>
+        <li><a href="#faq">常见问答</a></li>
+        <li><a href="#comments">用户评论</a></li>
+        <li><a href="#news">相关资讯</a></li>
+        <li><a href="#recommend">相关推荐</a></li>
+        <li><a href="#submit">投稿互动</a></li>
+      </ul>
+    </aside>
+
+    <!-- 中主内容 -->
+    <main class="main-content">
+      <!-- 1. 主题领域概览 -->
+      <section id="overview" aria-labelledby="overview-title">
+        <h2 class="section-title" id="overview-title">踩踏文化领域概览</h2>
+        <div class="deep-dive" style="padding: 24px 28px;">
+          <p>踩踏文化在二次元与同人创作中大致分为三个方向：动画分镜里的踩踏场景、实拍投稿中的鞋底与力度展示、以及围绕道具刑具展开的考据内容。2026 年 10 月以来，站内新增投稿 47 条，其中动画分镜 19 条、实拍 21 条、道具考据 7 条。动画方向以「分镜拆解」和「踩踏帧」为主要形式，热度最高的是《地牢刑具·铁处女》第 3 集里 4 分 22 秒的靴底特写，单条评论 132 条。实拍方向则集中在材质对比——Vibram 1136 大底与普通橡胶底在石板、木地板、金属格栅三种地面上的声音和回弹差异，是本周讨论最集中的话题。道具考据方面，铁处女内部踏板结构、中世纪脚枷的铰链尺寸，都有用户上传了图纸和测量数据。</p>
+          <p>值得关注的新动向是「鞋底纹路数据库」的搭建。截至 11 月 7 日，已有 23 位用户上传了 56 种鞋底的微距照片与接触面积参数，涵盖军靴、马丁靴、户外徒步鞋三类。这个数据库直接影响实拍投稿的参考价值：同样的踩踏动作，齿纹深度 3mm 和 6mm 的鞋底在沙地留下的印记完全不同。另一个变化是动画区开始出现「踩踏音效重制」投稿，用实录鞋底摩擦声替换原片音轨，目前已有 5 条完成版。</p>
+        </div>
+      </section>
+
+      <!-- 2. 精选内容推荐 -->
+      <section id="featured" aria-labelledby="featured-title">
+        <h2 class="section-title" id="featured-title">精选内容推荐</h2>
+        <div class="card-grid">
+          <article class="card">
+            <img class="card-img" src="https://picsum.photos/seed/caita_boot01/400/300" alt="深色军靴踩在石板上的微距摄影" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <h3 class="card-title">Vibram 1136 大底石板踩踏实录</h3>
+              <div class="card-tags"><span class="tag">实拍</span><span class="tag">鞋底评测</span><span class="tag">石板</span></div>
+              <p class="card-desc">3 分 40 秒固定机位，记录齿纹深度 5mm 的军靴在花岗岩上的完整接触过程，附带慢放与声音频谱。</p>
+              <div class="card-meta"><span>热度 2.3k</span><span class="meta-hot">评分 9.1</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img class="card-img" src="https://picsum.photos/seed/caita_iron02/400/300" alt="铁处女刑具内部踏板结构线稿" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <h3 class="card-title">铁处女内部踏板结构考据</h3>
+              <div class="card-tags"><span class="tag">考据</span><span class="tag">刑具</span><span class="tag">图纸</span></div>
+              <p class="card-desc">根据纽伦堡 16 世纪手稿复刻的踏板尺寸图，标注了铰链间距与尖刺排列角度，配 12 张局部照片。</p>
+              <div class="card-meta"><span>热度 1.8k</span><span class="meta-hot">评分 8.9</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img class="card-img" src="https://picsum.photos/seed/caita_anim03/400/300" alt="动画分镜中靴底特写画面" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <h3 class="card-title">《地牢刑具·铁处女》第3集踩踏帧拆解</h3>
+              <div class="card-tags"><span class="tag">动画</span><span class="tag">分镜</span><span class="tag">靴底特写</span></div>
+              <p class="card-desc">逐帧分析 4分22秒至4分35秒的 18 帧，讨论透视压缩和阴影处理如何强化压迫感。</p>
+              <div class="card-meta"><span>热度 3.1k</span><span class="meta-hot">评分 9.4</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img class="card-img" src="https://picsum.photos/seed/caita_martin04/400/300" alt="马丁靴鞋底纹路微距对比" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <h3 class="card-title">马丁靴 1460 与军靴齿纹深度对比</h3>
+              <div class="card-tags"><span class="tag">对比</span><span class="tag">马丁靴</span><span class="tag">齿纹</span></div>
+              <p class="card-desc">实测 1460 的 2.8mm 齿纹与军靴 6mm 齿纹在湿沙地的印记差异，附接触面积计算。</p>
+              <div class="card-meta"><span>热度 1.2k</span><span class="meta-hot">评分 8.2</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img class="card-img" src="https://picsum.photos/seed/caita_sound05/400/300" alt="音频频谱图展示鞋底摩擦声" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <h3 class="card-title">踩踏音效重制：橡胶底×木地板</h3>
+              <div class="card-tags"><span class="tag">音效</span><span class="tag">重制</span><span class="tag">木地板</span></div>
+              <p class="card-desc">用实录替换原片音轨，保留 80Hz 以下低频冲击，高频摩擦声做了 3dB 衰减，附 A/B 对比视频。</p>
+              <div class="card-meta"><span>热度 980</span><span class="meta-hot">评分 8.7</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img class="card-img" src="https://picsum.photos/seed/caita_metal06/400/300" alt="金属格栅地面踩踏测试" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <h3 class="card-title">金属格栅上的防滑表现测试</h3>
+              <div class="card-tags"><span class="tag">实拍</span><span class="tag">金属格栅</span><span class="tag">防滑</span></div>
+              <p class="card-desc">三种鞋底在 30° 湿滑金属格栅上的静摩擦系数对比，军靴 0.62、马丁靴 0.48、运动鞋 0.35。</p>
+              <div class="card-meta"><span>热度 1.5k</span><span class="meta-hot">评分 8.5</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 3. 最新更新 / 动态 -->
+      <section id="latest" aria-labelledby="latest-title">
+        <h2 class="section-title" id="latest-title">最新更新与动态</h2>
+        <div class="compact-list">
+          <article class="compact-item">
+            <span class="compact-index">01</span>
+            <div class="compact-content">
+              <div class="compact-title">「地牢刑具·铁处女」第4集分镜稿公开</div>
+              <div class="compact-summary">制作组 11月7日 在 Pixiv 发布 6 页分镜，含两个未采用的踩踏角度。</div>
+            </div>
+            <span class="compact-date">11-07</span>
+          </article>
+          <article class="compact-item">
+            <span class="compact-index">02</span>
+            <div class="compact-content">
+              <div class="compact-title">鞋底纹路数据库新增 9 款户外徒步鞋</div>
+              <div class="compact-summary">Salomon X Ultra 4 等型号的微距照片和齿纹深度数据已上传。</div>
+            </div>
+            <span class="compact-date">11-08</span>
+          </article>
+          <article class="compact-item">
+            <span class="compact-index">03</span>
+            <div class="compact-content">
+              <div class="compact-title">音频区「低频踩踏声」采样包发布</div>
+              <div class="compact-summary">48kHz/24bit 的 12 条实录，含石板、木地板、碎石路三种介质。</div>
+            </div>
+            <span class="compact-date">11-06</span>
+          </article>
+          <article class="compact-item">
+            <span class="compact-index">04</span>
+            <div class="compact-content">
+              <div class="compact-title">脚枷铰链尺寸实测数据更新</div>
+              <div class="compact-summary">用户「铁砧」补测了 14 世纪款式，轴径从 12mm 修正为 10.5mm。</div>
+            </div>
+            <span class="compact-date">11-05</span>
+          </article>
+          <article class="compact-item">
+            <span class="compact-index">05</span>
+            <div class="compact-content">
+              <div class="compact-title">十月踩踏场景投票结果公布</div>
+              <div class="compact-summary">「靴底纹路」以 412 票当选最受关注要素，超过「力度表现」的 287 票。</div>
+            </div>
+            <span class="compact-date">11-04</span>
+          </article>
+          <article class="compact-item">
+            <span class="compact-index">06</span>
+            <div class="compact-content">
+              <div class="compact-title">「踩踏帧」标签下新增 23 条投稿</div>
+              <div class="compact-summary">11月第一周共审核通过 23 条动画截图，其中 7 条为原创重绘。</div>
+            </div>
+            <span class="compact-date">11-03</span>
+          </article>
+          <article class="compact-item">
+            <span class="compact-index">07</span>
+            <div class="compact-content">
+              <div class="compact-title">Vibram 1136 大底评测视频补档</div>
+              <div class="compact-summary">原作者补传了 4K 版本，修正了之前 1080p 版本中 2 分 10 秒的色偏。</div>
+            </div>
+            <span class="compact-date">11-02</span>
+          </article>
+          <article class="compact-item">
+            <span class="compact-index">08</span>
+            <div class="compact-content">
+              <div class="compact-title">「刑具考据」板块开放图纸上传</div>
+              <div class="compact-summary">支持 DXF 和 PDF 格式，首批上传的 5 份图纸已通过尺寸校验。</div>
+            </div>
+            <span class="compact-date">10-31</span>
+          </article>
+        </div>
+      </section>
+
+      <!-- 4. 分类入口 -->
+      <section id="categories" aria-labelledby="categories-title">
+        <h2 class="section-title" id="categories-title">分类入口</h2>
+        <div class="category-grid">
+          <a href="#featured" class="category-pill">动画分镜拆解</a>
+          <a href="#featured" class="category-pill">实拍踩踏记录</a>
+          <a href="#featured" class="category-pill">鞋底纹路评测</a>
+          <a href="#featured" class="category-pill">刑具道具考据</a>
+          <a href="#featured" class="category-pill">踩踏音效重制</a>
+          <a href="#featured" class="category-pill">靴底微距摄影</a>
+          <a href="#featured" class="category-pill">接触面积数据</a>
+          <a href="#featured" class="category-pill">同人图文投稿</a>
+        </div>
+      </section>
+
+      <!-- 5. 深度解析正文 -->
+      <section id="deep-dive" aria-labelledby="deep-dive-title">
+        <h2 class="section-title" id="deep-dive-title">深度解析</h2>
+        <div class="deep-dive">
+          <h3>鞋底齿纹深度如何改变踩踏画面的压迫感</h3>
+          <p>把齿纹深度作为单一变量，对比 2.8mm（马丁靴 1460）、5mm（Vibram 1136）、6mm（德军丛林靴）三组实拍素材。在石板地面，6mm 齿纹的接地面积比 2.8mm 少 18%，但单点压强高出 31%，慢放时能看到明显的「陷落—回弹」两段式形变。2.8mm 齿纹则几乎是一次性接触，画面显得平。这个差异在静态截图里不明显，在 120fps 慢放下决定压迫感的强弱。11月2日补档的 4K 版本修正色偏后，这一点更清楚。</p>
+          <h3>铁处女内部踏板的三处尺寸分歧</h3>
+          <p>现有三份公开图纸对踏板宽度的记录分别是 38cm（纽伦堡手稿）、42cm（19世纪复制品实测）、35cm（用户「铁砧」根据铰链间距反推）。分歧根源在测量基准：手稿用的是外侧框距，复制品实测是内踏板净宽，反推数据则依赖铰链轴径的假设值。11月5日「铁砧」把轴径从 12mm 修正为 10.5mm 后，反推宽度变为 37.2cm，与手稿的差距缩小到 0.8cm。这组数据链比任何单张图纸都更接近可验证的结论。</p>
+          <h3>实拍音效重制的两个可信度缺口</h3>
+          <p>目前 5 条音效重制投稿里，3 条没有标注原始采样距离，2 条没有给出麦克风型号。这两个缺口直接影响低频段的参考价值：距离 1m 和 2m 录到的 80Hz 以下衰减差 6dB，不同麦克风的低频滚降曲线也完全不同。11月6日发布的采样包补上了这两项信息，12 条实录全部标注了距离（0.8m/1.5m/2.5m）和麦克风（DPA 4060、Sennheiser MKH 8020），是目前唯一可横向对比的一组。</p>
+          <h3>接触面积数据怎么用于判断条目质量</h3>
+          <p>鞋底纹路数据库里的 56 种鞋底，有 41 种附带了接触面积参数。同一踩踏动作下，接触面积每减少 10cm²，地面痕迹的边界清晰度约提升一个等级（按 DB 的 5 级标准）。用这个关系可以快速筛掉参数缺失的实拍投稿：没有接触面积数据的条目，在对比类内容里价值有限。截至 11月8日，带完整参数的实拍投稿平均评分 8.6，缺失参数的只有 7.2，差距明显。</p>
+        </div>
+      </section>
+
+      <!-- 6. 体验指南 / 消费路径 -->
+      <section id="guide" aria-labelledby="guide-title">
+        <h2 class="section-title" id="guide-title">体验指南</h2>
+        <div class="deep-dive" style="padding: 24px 28px;">
+          <p>看踩踏类内容，先定介质再看鞋底。石板和金属格栅的条目适合看冲击感，木地板和沙地更适合看纹路细节。判断一条实拍值不值得投入时间，查三个点：有没有标注鞋底型号和齿纹深度、有没有给出接触面积、慢放片段是原始帧率还是插值。三者齐全的条目，11月站内一共 9 条，平均时长 4 分 12 秒，信息密度最高。</p>
+          <p>动画分镜的消费顺序不一样。先看原片踩踏帧的时长——单帧停留超过 0.5 秒的，分镜拆解通常有更多透视细节可讨论；短于 0.2 秒的帧，拆解往往流于猜测。再看拆解作者有没有给出帧编号和原始分辨率截图。11月3日新增的 23 条踩踏帧投稿里，只有 6 条附了帧编号，这 6 条的评论互动量是其余 17 条的 2.4 倍。</p>
+          <p>道具考据类内容门槛最高。优先看带测量数据的条目，图纸里至少要出现两个以上尺寸标注（轴径、踏板宽、尖刺间距）。只有照片没有尺寸的，当作视觉参考，不能当考据依据。同类条目比较时，看修正记录——11月5日「铁砧」的轴径修正，比原始发布更有参考价值，因为暴露了假设条件。</p>
+        </div>
+      </section>
+
+      <!-- 7. FAQ -->
+      <section id="faq" aria-labelledby="faq-title">
+        <h2 class="section-title" id="faq-title">常见问答</h2>
+        <div class="faq-list">
+          <details>
+            <summary>「地牢刑具·铁处女」第3集踩踏帧的原画分辨率是多少？</summary>
+            <div class="faq-answer">原画为 1920×1080，输出时保留了 2.39:1 遮幅，所以实际有效画面高度约 803 像素。分镜拆解里标注的帧编号以 24fps 时间码为准，4分22秒对应第 6288 帧。</div>
+          </details>
+          <details>
+            <summary>Vibram 1136 大底和普通橡胶底在石板上的声音差多少？</summary>
+            <div class="faq-answer">实测 1m 距离下，1136 大底的主频段在 120—180Hz，普通橡胶底在 200—260Hz，低频冲击声压级差 4.2dB。这个差异在重制音效时决定要不要补低频层。</div>
+          </details>
+          <details>
+            <summary>铁处女内部踏板宽度到底该信哪个数据？</summary>
+            <div class="faq-answer">目前 37.2cm 是修正轴径后的反推值，与纽伦堡手稿的 38cm 最接近。42cm 来自 19 世纪复制品实测，测量基准不同，不宜直接对比。考据时建议同时标注三个数值和各自基准。</div>
+          </details>
+          <details>
+            <summary>为什么有的踩踏实拍没有标注鞋底型号？</summary>
+            <div class="faq-answer">部分投稿者拍摄时未记录鞋款，事后无法确认。这类条目在对比类内容里参考价值有限，可优先跳过。11月站内带完整鞋底型号的实拍投稿占 64%。</div>
+          </details>
+          <details>
+            <summary>踩踏音效重制需要哪些原始素材？</summary>
+            <div class="faq-answer">至少需要采样距离、麦克风型号、原始帧率三项信息，否则低频段无法横向对比。11月6日发布的采样包是目前唯一三项齐全的一组，含 12 条实录。</div>
+          </details>
+          <details>
+            <summary>鞋底纹路数据库的接触面积参数怎么测的？</summary>
+            <div class="faq-answer">用压力感应纸记录静态站立 30 秒的接触印痕，再扫描计算面积，精度约 ±2cm²。同一个鞋底在石板和沙地的接触面积不同，数据库里分别记录。</div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 8. 用户评论 -->
+      <section id="comments" aria-labelledby="comments-title">
+        <h2 class="section-title" id="comments-title">用户评论</h2>
+        <div class="comment-grid">
+          <div class="comment-card"><div class="comment-user"><span class="avatar">靴</span>靴底猎人</div><p>第3集那个 4分22秒的靴底特写，阴影处理比前两集细太多了，边缘有半透明过渡。</p></div>
+          <div class="comment-card"><div class="comment-user"><span class="avatar">铁</span>铁砧</div><p>轴径修正之后反推值确实对上了，之前差 2cm 一直想不通。</p></div>
+          <div class="comment-card"><div class="comment-user"><span class="avatar">低</span>低频控</div><p>采样包下了，DPA 4060 那条木地板的听着最舒服，碎石路那条底噪有点大。</p></div>
+          <div class="comment-card"><div class="comment-user"><span class="avatar">沙</span>沙地印记</div><p>接触面积每减少 10cm² 提升一个清晰度等级，这个说法有数据支撑吗？样本量多少？</p></div>
+          <div class="comment-card"><div class="comment-user"><span class="avatar">马</span>马丁1460</div><p>1460 齿纹浅是浅，但日常穿确实够用，踩湿木板也没滑过。</p></div>
+          <div class="comment-card"><div class="comment-user"><span class="avatar">分</span>分镜狂</div><p>没帧编号的拆解基本靠猜，6 条带编号的确实讨论质量高。</p></div>
+          <div class="comment-card"><div class="comment-user"><span class="avatar">路</span>路过看看</div><p>不太懂鞋底这些参数，但慢放看着挺解压的。</p></div>
+          <div class="comment-card"><div class="comment-user"><span class="avatar">金</span>金属格栅</div><p>0.62 的摩擦系数是干态还是湿态？湿态的话挺高了。</p></div>
+          <div class="comment-card"><div class="comment-user"><span class="avatar">图</span>图纸收集者</div><p>脚枷图纸终于有 DXF 格式了，之前只有 PDF 没法量。</p></div>
+          <div class="comment-card"><div class="comment-user"><span class="avatar">音</span>音效师老周</div><p>补低频层这事我试过，120Hz 以下容易糊，衰减 2dB 刚好。</p></div>
+          <div class="comment-card"><div class="comment-user"><span class="avatar">投</span>投稿萌新</div><p>问下实拍投稿需要标注哪些参数啊，怕漏了审核不过。</p></div>
+          <div class="comment-card"><div class="comment-user"><span class="avatar">丛</span>丛林靴</div><p>6mm 那个陷落回弹两段式，在沙地上更明显，建议补一组沙地的。</p></div>
+          <div class="comment-card"><div class="comment-user"><span class="avatar">动</span>动画考据</div><p>第4集分镜稿里有个俯视角度没用上，有点可惜，那个角度压迫感更强。</p></div>
+          <div class="comment-card"><div class="comment-user"><span class="avatar">数</span>数据派</div><p>56 种鞋底里 41 种有参数，剩下 15 种赶紧补吧，对比起来很难受。</p></div>
+          <div class="comment-card"><div class="comment-user"><span class="avatar">路</span>路人甲</div><p>投票结果靴底纹路第一，力度表现第二，跟我想的差不多。</p></div>
+          <div class="comment-card"><div class="comment-user"><span class="avatar">慢</span>慢放党</div><p>120fps 和插值到 120fps 观感差挺多的，插值的有拖影。</p></div>
+        </div>
+      </section>
+
+      <!-- 9. 相关资讯 -->
+      <section id="news" aria-labelledby="news-title">
+        <h2 class="section-title" id="news-title">相关资讯</h2>
+        <div class="news-list">
+          <article class="news-item">
+            <img class="news-thumb" src="https://picsum.photos/seed/caita_news01/120/90" alt="分镜稿局部截图" width="120" height="90" loading="lazy">
+            <div class="news-content">
+              <div class="news-title">「地牢刑具·铁处女」第4集分镜稿 Pixiv 公开</div>
+              <div class="news-date">2026-11-07</div>
+              <div class="news-summary">制作组「暗箱」在 Pixiv 上传 6 页分镜，其中第 4 页含两个被弃用的俯视踩踏角度，标注「压迫感过强」。</div>
+            </div>
+          </article>
+          <article class="news-item">
+            <img class="news-thumb" src="https://picsum.photos/seed/caita_news02/120/90" alt="户外徒步鞋鞋底微距" width="120" height="90" loading="lazy">
+            <div class="news-content">
+              <div class="news-title">鞋底纹路数据库新增 9 款户外徒步鞋</div>
+              <div class="news-date">2026-11-08</div>
+              <div class="news-summary">Salomon X Ultra 4、La Sportiva TX4 等型号完成上传，齿纹深度集中在 4.5—5.5mm，接触面积 78—92cm²。</div>
+            </div>
+          </article>
+          <article class="news-item">
+            <img class="news-thumb" src="https://picsum.photos/seed/caita_news03/120/90" alt="音频频谱分析界面" width="120" height="90" loading="lazy">
+            <div class="news-content">
+              <div class="news-title">48kHz 踩踏音效采样包发布，含 12 条实录</div>
+              <div class="news-date">2026-11-06</div>
+              <div class="news-summary">采样距离分 0.8m、1.5m、2.5m 三档，麦克风为 DPA 4060 和 Sennheiser MKH 8020，附频谱参考图。</div>
+            </div>
+          </article>
+          <article class="news-item">
+            <img class="news-thumb" src="https://picsum.photos/seed/caita_news04/120/90" alt="脚枷铰链测量特写" width="120" height="90" loading="lazy">
+            <div class="news-content">
+              <div class="news-title">脚枷铰链轴径修正为 10.5mm，图纸已更新</div>
+              <div class="news-date">2026-11-05</div>
+              <div class="news-summary">用户「铁砧」补测 14 世纪款式后修正数据，内踏板净宽反推值从 35cm 调整为 37.2cm，与手稿差 0.8cm。</div>
+            </div>
+          </article>
+          <article class="news-item">
+            <img class="news-thumb" src="https://picsum.photos/seed/caita_news05/120/90" alt="投票结果图表" width="120" height="90" loading="lazy">
+            <div class="news-content">
+              <div class="news-title">十月踩踏场景投票：靴底纹路 412 票居首</div>
+              <div class="news-date">2026-11-04</div>
+              <div class="news-summary">共 876 人参与，「力度表现」287 票第二，「音效」109 票第三，「刑具细节」68 票第四。</div>
+            </div>
+          </article>
+          <article class="news-item">
+            <img class="news-thumb" src="https://picsum.photos/seed/caita_news06/120/90" alt="踩踏帧原创重绘" width="120" height="90" loading="lazy">
+            <div class="news-content">
+              <div class="news-title">「踩踏帧」标签一周新增 23 条，7 条为原创重绘</div>
+              <div class="news-date">2026-11-03</div>
+              <div class="news-summary">原创重绘中 4 条标注了参考原片帧号，最高一条获 89 次收藏，评论区讨论焦点在靴底透视。</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 10. 相关推荐 -->
+      <section id="recommend" aria-labelledby="recommend-title">
+        <h2 class="section-title" id="recommend-title">相关推荐</h2>
+        <div class="tag-cloud">
+          <a href="#featured">Salomon X Ultra 4 齿纹数据</a>
+          <a href="#featured">DPA 4060 踩踏实录</a>
+          <a href="#featured">纽伦堡手稿踏板宽度</a>
+          <a href="#featured">120fps 慢放素材</a>
+          <a href="#featured">湿态金属格栅防滑</a>
+          <a href="#featured">1460 马丁靴湿沙印记</a>
+          <a href="#featured">铁处女铰链图纸 DXF</a>
+          <a href="#featured">踩踏帧阴影过渡技巧</a>
+        </div>
+      </section>
+
+      <!-- 11. 补充板块：投稿互动 + 热门榜单 -->
+      <section id="submit" aria-labelledby="submit-title">
+        <h2 class="section-title" id="submit-title">投稿与互动</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+          <div class="deep-dive" style="padding: 22px 24px;">
+            <h3 style="margin-top: 0;">投稿要求</h3>
+            <ul>
+              <li>实拍类：标注鞋底型号、齿纹深度、拍摄介质、帧率。</li>
+              <li>分镜类：附帧编号与原始分辨率截图。</li>
+              <li>考据类：至少两个尺寸标注，注明测量基准。</li>
+              <li>音效类：给出采样距离与麦克风型号。</li>
+            </ul>
+            <p style="margin-top: 12px;">11月已收到 47 条投稿，其中 31 条通过审核。审核周期通常 2 个工作日。</p>
+          </div>
+          <div class="deep-dive" style="padding: 22px 24px;">
+            <h3 style="margin-top: 0;">本周热门榜单</h3>
+            <ul style="list-style: none; padding-left: 0;">
+              <li style="display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--border);"><span>① 第3集踩踏帧拆解</span><span style="color: var(--accent);">9.4</span></li>
+              <li style="display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--border);"><span>② Vibram 1136 石板实录</span><span style="color: var(--accent);">9.1</span></li>
+              <li style="display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--border);"><span>③ 铁处女踏板考据</span><span style="color: var(--accent);">8.9</span></li>
+              <li style="display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--border);"><span>④ 踩踏音效重制·木地板</span><span style="color: var(--accent);">8.7</span></li>
+              <li style="display: flex; justify-content: space-between; padding: 6px 0;"><span>⑤ 金属格栅防滑测试</span><span style="color: var(--accent);">8.5</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 右侧辅助栏 -->
+    <aside class="right-sidebar" aria-label="辅助信息">
+      <div class="side-card">
+        <h2>热榜 TOP5</h2>
+        <ul class="hot-list">
+          <li><span class="hot-rank">01</span><a href="#featured" class="hot-title">第3集踩踏帧拆解</a></li>
+          <li><span class="hot-rank">02</span><a href="#featured" class="hot-title">Vibram 1136 石板实录</a></li>
+          <li><span class="hot-rank">03</span><a href="#featured" class="hot-title">铁处女踏板考据</a></li>
+          <li><span class="hot-rank">04</span><a href="#featured" class="hot-title">马丁靴齿纹对比</a></li>
+          <li><span class="hot-rank">05</span><a href="#featured" class="hot-title">金属格栅防滑测试</a></li>
+        </ul>
+      </div>
+      <div class="side-card">
+        <h2>最近更新</h2>
+        <ul class="update-feed">
+          <li><span class="update-name">「铁处女」第4集分镜</span><span class="update-time">11-07</span></li>
+          <li><span class="update-name">鞋底数据库 +9 款</span><span class="update-time">11-08</span></li>
+          <li><span class="update-name">音效采样包发布</span><span class="update-time">11-06</span></li>
+          <li><span class="update-name">脚枷轴径修正</span><span class="update-time">11-05</span></li>
+          <li><span class="update-name">十月投票结果</span><span class="update-time">11-04</span></li>
+        </ul>
+      </div>
+      <div class="side-card">
+        <h2>站内数据</h2>
+        <ul class="update-feed">
+          <li>鞋底型号收录 <strong style="color: var(--accent);">56</strong> 种</li>
+          <li>实拍投稿 <strong style="color: var(--accent);">21</strong> 条</li>
+          <li>分镜拆解 <strong style="color: var(--accent);">19</strong> 条</li>
+          <li>考据图纸 <strong style="color: var(--accent);">7</strong> 份</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <!-- 页尾 -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>踩踏天堂caita</h3>
+        <p>覆盖 2026 年 10 月至今的踩踏类投稿，条目类型包括实拍实录、动画分镜拆解、鞋底参数对比与刑具考据图纸。每周三、周六更新两次，审核周期 2 个工作日。</p>
+      </div>
+      <div class="footer-col">
+        <h4>内容频道</h4>
+        <a href="#featured">实拍记录</a>
+        <a href="#featured">动画分镜</a>
+        <a href="#featured">鞋底评测</a>
+        <a href="#featured">道具考据</a>
+      </div>
+      <div class="footer-col">
+        <h4>互动</h4>
+        <a href="#submit">投稿入口</a>
+        <a href="#comments">用户评论</a>
+        <a href="#faq">常见问答</a>
+        <a href="#latest">最新动态</a>
+      </div>
+      <div class="footer-col">
+        <h4>数据</h4>
+        <a href="#recommend">相关推荐</a>
+        <a href="#news">资讯列表</a>
+        <a href="#deep-dive">深度解析</a>
+        <a href="#overview">领域概览</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>页面内容为示例条目，用于展示主题聚合结构。最后更新 2026-11-08，对应公告条「地牢刑具·铁处女」新增 3 段踩踏实录。</span>
+      <span>© 2026 踩踏天堂caita 内容聚合示例</span>
+    </div>
+  </footer>
+
+  <!-- 回到顶部按钮 -->
+  <button class="back-top" id="back-top" aria-label="回到顶部">↑</button>
+
+  <!-- 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "踩踏天堂caita",
+    "description": "聚焦踩踏文化、动画分镜与鞋底评测的内容聚合页面",
+    "url": "https://example.com/caita"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "「地牢刑具·铁处女」第3集踩踏帧的原画分辨率是多少？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "原画为 1920×1080，输出时保留了 2.39:1 遮幅，所以实际有效画面高度约 803 像素。分镜拆解里标注的帧编号以 24fps 时间码为准，4分22秒对应第 6288 帧。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Vibram 1136 大底和普通橡胶底在石板上的声音差多少？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "实测 1m 距离下，1136 大底的主频段在 120—180Hz，普通橡胶底在 200—260Hz，低频冲击声压级差 4.2dB。这个差异在重制音效时决定要不要补低频层。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "铁处女内部踏板宽度到底该信哪个数据？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "目前 37.2cm 是修正轴径后的反推值，与纽伦堡手稿的 38cm 最接近。42cm 来自 19 世纪复制品实测，测量基准不同，不宜直接对比。考据时建议同时标注三个数值和各自基准。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "为什么有的踩踏实拍没有标注鞋底型号？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "部分投稿者拍摄时未记录鞋款，事后无法确认。这类条目在对比类内容里参考价值有限，可优先跳过。11月站内带完整鞋底型号的实拍投稿占 64%。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "踩踏音效重制需要哪些原始素材？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "至少需要采样距离、麦克风型号、原始帧率三项信息，否则低频段无法横向对比。11月6日发布的采样包是目前唯一三项齐全的一组，含 12 条实录。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "鞋底纹路数据库的接触面积参数怎么测的？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "用压力感应纸记录静态站立 30 秒的接触印痕，再扫描计算面积，精度约 ±2cm²。同一个鞋底在石板和沙地的接触面积不同，数据库里分别记录。"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- 交互脚本 -->
+  <script>
+    (function() {
+      // 移动端菜单
+      const hamburger = document.getElementById('hamburger-btn');
+      const nav = document.getElementById('main-nav');
+      const overlay = document.getElementById('overlay');
+      function closeMenu() {
+        nav.classList.remove('mobile-open');
+        overlay.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.textContent = '☰';
+      }
+      function openMenu() {
+        nav.classList.add('mobile-open');
+        overlay.classList.add('active');
+        hamburger.setAttribute('aria-expanded', 'true');
+        hamburger.textContent = '✕';
+      }
+      hamburger.addEventListener('click', function() {
+        if (nav.classList.contains('mobile-open')) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+      overlay.addEventListener('click', closeMenu);
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && nav.classList.contains('mobile-open')) {
+          closeMenu();
+        }
+      });
+
+      // 回到顶部
+      const backTop = document.getElementById('back-top');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > window.innerHeight) {
+          backTop.classList.add('visible');
+        } else {
+          backTop.classList.remove('visible');
+        }
+      });
+      backTop.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // 搜索筛选
+      const searchInput = document.getElementById('site-search');
+      const searchBtn = document.getElementById('search-btn');
+      function performSearch() {
+        const query = searchInput.value.trim().toLowerCase();
+        const allSections = document.querySelectorAll('main .card, main .compact-item, main .news-item, main .comment-card, main .faq-list details');
+        if (!query) {
+          allSections.forEach(el => el.style.display = '');
+          return;
+        }
+        let found = false;
+        allSections.forEach(el => {
+          const text = el.textContent.toLowerCase();
+          if (text.includes(query)) {
+            el.style.display = '';
+            found = true;
+          } else {
+            el.style.display = 'none';
+          }
+        });
+        if (!found) {
+          alert('没有找到包含「' + searchInput.value.trim() + '」的条目。');
+        }
+      }
+      searchBtn.addEventListener('click', performSearch);
+      searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') performSearch();
+      });
+
+      // 频道高亮
+      const channelLinks = document.querySelectorAll('.channel-list a');
+      const sections = document.querySelectorAll('main section[id]');
+      function highlightChannel() {
+        let currentId = '';
+        const scrollPos = window.scrollY + 130;
+        sections.forEach(section => {
+          if (section.offsetTop <= scrollPos) {
+            currentId = section.getAttribute('id');
+          }
+        });
+        channelLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + currentId) {
+            link.classList.add('active');
+          }
+        });
+      }
+      window.addEventListener('scroll', highlightChannel);
+      highlightChannel();
+    })();
+  </script>
+</body>
+      </html>
